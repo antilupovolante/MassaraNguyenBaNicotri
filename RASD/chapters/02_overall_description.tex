@@ -1,6 +1,68 @@
 \chapter{Overall Description}
 
 \section{Product perspective}
+In this section we analyze a list of real 
+scenariosand diagrams illustrating further details about shared phenomenas.\\
+
+\subsection{Scenarios}
+\begin{enumerate}
+    \item \textbf{Registration} \\
+    Prof. White reads about CodeKataBattle in a online spot and decides to use the platform to 
+    challenge his students. So, he creates an account using his email address and personal information
+     and convinces his colleagues to join the platform.\\
+     Alice and her classmates, after prof. White's lesson, are interested in improving their coding 
+     skills and sign up to CKB. Alice provides her email address and personal information; after the email 
+     confimation goes well, 
+     she can complete the registration process by linking her CKB account to her GitHub account. Her nickname
+      on the platform will be her GitHub one.\\
+      After the registration, both Prof. White and Alice can visualize the profile of all the other
+      students and the information about the ongoing tournaments.
+    \item \textbf{Creation of tournaments} \\
+    Prof. Brown and prof. Smith want to decide whose class is better at programming. So Prof.Brown
+    create a tournament on CKB and invite his colleague to create battles within the tournament. Prof. Brown
+    sets a deadline by which their students can subscribe. A notification is sent to all CKB students. \\
+    
+    \item \textbf{Creation of battles} \\
+    Prof. Bloom has been granted the permission to create battles in a tournament, so he uploads a 
+    code kata battle. First he writes a brief textual description of the exercise, then he includes 
+    the software project with build automation scripts and test cases. He also sets some rules:
+    minimum and maximum number of students per group, registration deadline, final submission deadline, 
+    automated evaluation parameters.\\
+    Finally, he chooses to include some optional manual evaluation of his students' work.\\
+    \item \textbf{Students join a battle} \\
+    Bob registered to the CKB platform and received a notification about an interesting tournament 
+    and he subscribed to it. 
+    \\He is notified about a new interesting battle in that tournament is upcoming. Before the registration 
+    deadline expires, Bob can form a group, so invites his girlfriend Eva to join him. After the registration
+     deadline ends, they are sent the link of the GitHub repository of the code kata. To be able to start 
+     working on the project, Bob and Eva must fork the repository and set up an automated workflow through
+     GitHub Actions to inform the CKB platform about their commits.\\
+
+    \item \textbf{Upload of a solution} \\
+    Charlie has joined a battle with his friends and thinks that they have found a good solution to 
+    the assigned problem. So he push his code before the final deadline to the main branch of their
+    repository. \\This battle doesn't expect any manual evaluation by the educator, so as soon as 
+    push the solution, the platform evaluates it and they can visualize their updated battle score.
+    After the final deadline has expired, Charlie can also see the current tournament ranking. \\
+
+    \item \textbf{Evaluation of project}\\
+    When Prof. Cooper created the battle, he decided to include manual evaluation in the battle rules:
+    he wants the system to assign up to 75 points, while he will assign the remaing 25 points. 
+    So, scores will always be between 0 and 100.\\
+    After the final deadline, prof. Cooper can see all the groups' work and he evaluates them according
+    to some personal parameters such that design quality, code cleanliness, compliance with specifications.\\
+
+    \item \textbf{Creation of gamification badges}\\
+    Prof. Moore has created a tournament and to spice things up he decides to include badges.
+    These are awarded according to the rules specific by him at tournament set up time: in particular,
+     he wants to reward the student with most commits and the student who have attended the most battles.\\
+    The badges are assigned at the end of the tournament and the collected badges can be seen by everyone
+     visiting the student's profile. \\
+\end{enumerate}
+
+\subsection{Class diagrams}
+
+\subsection{State diagrams}
 
 \section{Product functions}
 
