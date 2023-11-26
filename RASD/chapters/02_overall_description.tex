@@ -8,56 +8,58 @@ scenariosand diagrams illustrating further details about shared phenomenas.\\
 \begin{enumerate}
     \item \textbf{Registration} \\
     Prof. White reads about CodeKataBattle in a online spot and decides to use the platform to 
-    challenge his students. So, he creates an account using his email address and personal information
-     and convinces his colleagues to join the platform.\\
-     Alice and her classmates, after prof. White's lesson, are interested in improving their coding 
-     skills and sign up to CKB. Alice provides her email address and personal information; after the email 
-     confimation goes well, 
-     she can complete the registration process by linking her CKB account to her GitHub account. Her nickname
-      on the platform will be her GitHub one.\\
-      After the registration, both Prof. White and Alice can visualize the profile of all the other
-      students and the information about the ongoing tournaments.
+    challenge his students. So, he creates an account using his email address and personal information 
+    and convinces his colleagues to join the platform.\\
+    Alice and her classmates, after prof. White's lesson, are interested in improving their coding 
+    skills and sign up to CKB. Alice provides her email address and personal information; after the email 
+    confimation goes well, 
+    she can complete the registration process by linking her CKB account to her GitHub account. Her nickname 
+    on the platform will be her GitHub one.\\
+    After the registration, both Prof. White and Alice can visualize the profile of all the other 
+    students and the information about the ongoing tournaments.
+
     \item \textbf{Creation of tournaments} \\
-    Prof. Brown and prof. Smith want to decide whose class is better at programming. So Prof.Brown
-    create a tournament on CKB and invite his colleague to create battles within the tournament. Prof. Brown
+    Prof. Brown and prof. Smith want to decide whose class is better at programming. So Prof.Brown 
+    create a tournament on CKB and invite his colleague to create battles within the tournament. Prof. Brown 
     sets a deadline by which their students can subscribe. A notification is sent to all CKB students. \\
     
     \item \textbf{Creation of battles} \\
     Prof. Bloom has been granted the permission to create battles in a tournament, so he uploads a 
     code kata battle. First he writes a brief textual description of the exercise, then he includes 
-    the software project with build automation scripts and test cases. He also sets some rules:
+    the software project with build automation scripts and test cases. He also sets some rules: 
     minimum and maximum number of students per group, registration deadline, final submission deadline, 
     automated evaluation parameters.\\
     Finally, he chooses to include some optional manual evaluation of his students' work.\\
+
     \item \textbf{Students join a battle} \\
     Bob registered to the CKB platform and received a notification about an interesting tournament 
-    and he subscribed to it. 
-    \\He is notified about a new interesting battle in that tournament is upcoming. Before the registration 
-    deadline expires, Bob can form a group, so invites his girlfriend Eva to join him. After the registration
-     deadline ends, they are sent the link of the GitHub repository of the code kata. To be able to start 
-     working on the project, Bob and Eva must fork the repository and set up an automated workflow through
-     GitHub Actions to inform the CKB platform about their commits.\\
+    and he subscribed to it. \\
+    He is notified about a new interesting battle in that tournament is upcoming. Before the registration 
+    deadline expires, Bob can form a group, so invites his girlfriend Eva to join him. After the registration 
+    deadline ends, they are sent the link of the GitHub repository of the code kata. To be able to start 
+    working on the project, Bob and Eva must fork the repository and set up an automated workflow through 
+    GitHub Actions to inform the CKB platform about their commits.\\
 
     \item \textbf{Upload of a solution} \\
     Charlie has joined a battle with his friends and thinks that they have found a good solution to 
-    the assigned problem. So he push his code before the final deadline to the main branch of their
+    the assigned problem. So he push his code before the final deadline to the main branch of their 
     repository. \\This battle doesn't expect any manual evaluation by the educator, so as soon as 
-    push the solution, the platform evaluates it and they can visualize their updated battle score.
+    push the solution, the platform evaluates it and they can visualize their updated battle score. 
     After the final deadline has expired, Charlie can also see the current tournament ranking. \\
 
     \item \textbf{Evaluation of project}\\
-    When Prof. Cooper created the battle, he decided to include manual evaluation in the battle rules:
+    When Prof. Cooper created the battle, he decided to include manual evaluation in the battle rules: 
     he wants the system to assign up to 75 points, while he will assign the remaing 25 points. 
     So, scores will always be between 0 and 100.\\
-    After the final deadline, prof. Cooper can see all the groups' work and he evaluates them according
+    After the final deadline, prof. Cooper can see all the groups' work and he evaluates them according 
     to some personal parameters such that design quality, code cleanliness, compliance with specifications.\\
 
     \item \textbf{Creation of gamification badges}\\
-    Prof. Moore has created a tournament and to spice things up he decides to include badges.
-    These are awarded according to the rules specific by him at tournament set up time: in particular,
-     he wants to reward the student with most commits and the student who have attended the most battles.\\
-    The badges are assigned at the end of the tournament and the collected badges can be seen by everyone
-     visiting the student's profile. \\
+    Prof. Moore has created a tournament and to spice things up he decides to include badges. 
+    These are awarded according to the rules specific by him at tournament set up time: in particular, 
+    he wants to reward the student with most commits and the student who have attended the most battles.\\
+    The badges are assigned at the end of the tournament and the collected badges can be seen by everyone 
+    visiting the student's profile. \\
 \end{enumerate}
 
 \subsection{Class diagrams}
@@ -65,6 +67,62 @@ scenariosand diagrams illustrating further details about shared phenomenas.\\
 \subsection{State diagrams}
 
 \section{Product functions}
+\subsection{Sign up and login}
+These functions are available to both students and educators.\\
+The sign up functionality allows users to register on the platform: in particular, each user will provide an email,
+their personal information (name, surname, date of birth) and a password. Then a verification email is sent to the user.
+After the confirmation, if the user is a student they are required to provide a GitHub account.\\
+Once registered, both students and educators can visualize the profile of all the other users.\\
+The login functionality allows users to access the platform using their email and password.\\
+
+\subsection{Creation of a tournament}
+Educators can create tournaments, programming competitions composed of various code kata battles.\\
+The creator of the tournament can invite other educators and grant them the permission to create battles within the 
+context of the tournament.\\
+When they create a tournament, educators sets a registration deadline and can also define badges, i.e., awards that 
+represent particular achievements of individual students: the educator may use pre-defined variables and rules or create 
+new ones.\\
+Information about ongoing tournaments is avalaible to all subscribed users.\\
+
+\subsection{Creation of a battle}
+After being granted such permission from the creator of the tournament, educators can create code kata battles within the
+context of the tournament.\\
+A code kata battle is a programming exercise in a programming language chosen by its creator. It includes a textual description
+of the exercise and a software project with build automation scripts and test cases.\\
+To create a battle, the educator must upload the code kata, set the rules regarding groups composition (minimum and maximum 
+number of members), set a registration deadline, set a final submission deadline, and set evaluation parameters. They may also 
+specify if they want to include a manual evaluation of the students' work, in addition the mandatory automated one, after the 
+submission deadline expires.\\
+Educators can see the current battle ranking evolve during the battle.\\
+
+\subsection{Join a tournament}
+Students can join any tournament before its registration deadline expires. By signing up to a tournament, they also 
+subscribe to notifications regarding upcoming battles within the context of that tournament.\\
+Students also receive a notification when the tournament ends.\\
+By participating in a tournament, students can earn badges that can be visualized in their profile.\\
+
+\subsection{Join a battle}
+Students subscribed to a tournament can join any upcoming battle before its registration deadline expires.\\
+Students can participate alone or in groups to the battle, according to the rules set for that battle by its creator.\\
+When the registration deadline expires, students are sent an email with the link of the GitHub repository containing the 
+code kata. To start working on the project, they are required to fork the repository and set up an automated workflow, 
+using GitHub Actions, to inform CKB about new commits into the main branch of their repository.\\
+As soon as students push a solution it is automatically evaluated, so they can see their current battle score and their 
+battle rank.\\
+When the submission deadline (and, if required, the manual evaluation stage) ends, students are notified about their final 
+battle score and rank and they can see their updated tournament score.\\
+
+\subsection{Evaluation of a project}
+According to the parameters set by the creator of the battle, the system automatically evaluates the students' work with regard to
+\begin{enumerate}
+  \item functional aspects (i.e., the percentage of passed test cases);
+  \item timeliness (i.e., the time passed between the registration deadline and the last commit);
+  \item code quality (extracted using static analysis tools).
+\end{enumerate}
+If the educator has decided to include manual evaluation in the battle rules, they can see all the groups' work and evaluate 
+the students' work according to some personal parameters such that design quality, code cleanliness, compliance with specifications.\\
+The final score is a natural number between 0 and 100 calculated as specified at battle creation time.\\
+
 
 \section{User characteristics}
 
