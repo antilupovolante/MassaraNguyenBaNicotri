@@ -167,5 +167,43 @@ The CKB system has two different types of actors who use the system:
     They can visualize the achieved badges on their personal profile. 
 \end{itemize}
 
-\section{Assumptions, dependecies and constraints}
+\section{Assumptions, dependencies and constraints}
 
+\subsection{Domain assumptions}
+\begin{table}[H]
+  \begin{tabularx}{\textwidth}{cX}
+        \toprule
+        \textbf{D1} & Users provide correct information during the registration process.\\
+        \textbf{D2} & Students have an email and a GitHub account.\\
+        \textbf{D3} & Users have a stable and reliable Internet connection.\\
+        \textbf{D4} & Students know the functioning of GitHub and GitHub Actions.\\
+        \textbf{D5} & Educators create at least one battle within a tournament.\\
+        \textbf{D6} & Students must give consent to access their GitHub account.\\
+        \textbf{D7} & Educators have a good knowledge of programming.\\
+        \textbf{D8} & Educators upload a correct code kata.\\
+        \bottomrule
+  \end{tabularx}
+\end{table}
+
+\subsection{Dependencies}
+\begin{table}[H]
+      \begin{tabularx}{\textwidth}{cX}
+            \toprule
+            \textbf{Dep1}  & The system requires access to GitHub API.\\
+            \textbf{Dep2}  & The system will use a third party API to send emails to the users.\\
+            \textbf{Dep3}  & The system will require internet connection to interact with all the users.\\
+            \textbf{Dep4}  & The system requires access to a development environment to run students' code.\\
+            \bottomrule
+      \end{tabularx}
+\end{table}
+
+\subsection{Constraints}
+\begin{itemize}
+      \item The system shall be compliant to local laws and regulations, in particular users data should be treated
+            according to the GDPR. This means that users should be always able to request their data.
+      \item The system should collect only necessary data, such as name, surname, date of birth, email address, etc.
+      \item To better protect the users' sensitive information, such as their personal information and credentials, their data 
+            should be encrypted.
+      \item The external APIs, especially those critical for the correct functioning of the system, must be chosen among those with 
+            the highest availability and reliability.
+\end{itemize}
