@@ -63,6 +63,12 @@ scenariosand diagrams illustrating further details about shared phenomenas.\\
 \end{enumerate}
 
 \subsection{Class diagrams}
+The UML class diagram below represents a conceptual, high-level model of the software to be. 
+At this level, it not include any references to methods and other low-level details, those will be detailed during the design phase. \\
+The main entities in the diagram are:
+\begin{itemize}
+    \item \textbf{User:} represents a user of the system.
+\end{itemize}
 
 \subsection{State diagrams}
 \textbf{Registration}\\
@@ -145,8 +151,21 @@ If the educator has decided to include manual evaluation in the battle rules, th
 the students' work according to some personal parameters such that design quality, code cleanliness, compliance with specifications.\\
 The final score is a natural number between 0 and 100 calculated as specified at battle creation time.\\
 
-
 \section{User characteristics}
+The CKB system has two different types of actors who use the system:
+\begin{itemize}
+    \item \textbf{Educator:} people who create tournaments and battles, and evaluate the students' work. 
+    To create a battle they set up some settings such as the code kata (description and software project, including test cases and build
+    automation scripts), the minimum and maximum number of students per group, the registration deadline, the final submission deadline and the configurations for scoring.
+    They can also grant other educators the permission to create battles within a tournament. 
+    For each tournament, they may define specific badges establishing new rules and variables in order to reward capable students.
+    Optionally, they can manually evaluate students' codes based on their requirements and assign their personal score. 
+    \item \textbf{Student:} people who join tournaments and battles created by educators, and commit their code on GitHub. 
+    They can create a team inviting other students and compete in a battle with other teams. 
+    At the end of each tournament they can visualize the final rank and their current score. 
+    If educators has defined some specific badges for the tournament, students can achieve them if they has fulfilled the rules. 
+    They can visualize the achieved badges on their personal profile. 
+\end{itemize}
 
 \section{Assumptions, dependecies and constraints}
 
