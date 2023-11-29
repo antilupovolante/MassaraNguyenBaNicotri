@@ -71,14 +71,28 @@ The main entities in the diagram are:
 \end{itemize}
 
 \subsection{State diagrams}
+State diagrams model the behavior of a single object and are used for objects with 
+significant dynamic behavior; they also specify the sequence of states that an 
+object goes through during its lifetime in response to stimuli from the environment.
+ In particular, they show the life history of a given class, the events that cause a transition
+  from one state to another and the actions that result from a state change.\\
+In this section we will represent the main state diagrams of the whole system.
+
 \textbf{Registration}\\
+In the following figure is shown the process of registration for both students and educators. 
+The user has to insert his email, choose  password and specify if he is a student or a educator.\\
+If the email is incorrect, the system repeats the operations. Otherwise, the system ask for personal informations,
+ send a verification code and check it.\\If everything goes well, the system create the new account.
 \begin{figure} [H]
   \centering
-  \includegraphics[width=0.95\textwidth]{images/Registration.jpg}
+  \includegraphics[width=0.80\textwidth]{images/Registration.jpg}
   \caption{Registration state chart}
 \end{figure} \vspace{1cm}
 
 \textbf{Login}\\
+In the following figure is shown the process of login for both students and educators. 
+The user has to insert his email and the password associated to his account.
+\\If the credentials are incorrect, the system repeats the operations. Otherwise the user visualize the homepage.
 \begin{figure} [H]
   \centering
   \includegraphics[width=0.7\textwidth]{images/Login.jpg}
@@ -87,6 +101,10 @@ The main entities in the diagram are:
 
 \clearpage
 \textbf{Tournament evolution}\\
+In the following figure is shown the evolution of a tournament. If the user is a student, he can only join
+the tournament, choose which battle he want to attempt and invite friends.\\ If the user is an educator, he
+can create a tournament or only create the battles (if he has the permission). He can also evaluate 
+the student if the settings of the tournament consent it.
 \begin{figure} [H]
   \centering
   \includegraphics[width=0.815\textwidth]{images/Tournament_evolution.jpg}
