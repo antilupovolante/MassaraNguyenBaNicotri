@@ -12,6 +12,29 @@
 \usepackage{style/alloy}
 \usepackage{ragged2e}
 
+\newcommand{\usecase}[8]{
+    \def\arraystretch{1.5} % This adds padding to table rows (and more)
+    \subsubsection*{U#1: #2}
+    \vspace*{0.1cm}
+    \begin{center}
+     \begin{tabular}{|l|p{12cm}|}
+         \hline
+         \textbf{Actor(s)} & #3 \\
+         \hline
+         \textbf{Entry Condition} & #4 \\
+         \hline
+         \textbf{Event Flow} & #5 \\
+         \hline
+         \textbf{Exit Condition} & #6 \\
+         \hline
+          \textbf{Exceptions} & #7 \\
+         \hline
+         \textbf{Notes} & #8 \\
+         \hline
+      \end{tabular}
+    \end{center}
+}
+
 \begin{document}
 	\include{intro/title_page}
     \include{intro/version_history}

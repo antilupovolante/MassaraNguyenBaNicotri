@@ -26,16 +26,81 @@ network (LTE/3G/4G/5G).\\
 \end{figure}
 \clearpage
 
+\subsection{Use Cases Description}
+\usecase
+{1}
+{Login}
+{Student, Educator}
+{The actor is already registered in the system}
+{
+    \begin{enumerate}
+        \item The actor requires the Login Page
+        \item The system shows the Login Page to the actor
+        \item The actor inserts the credentials (email and passwors) in the form
+        \item The actor submits the form and sends it to the system
+        \item The system processes the information and shows a success message redirecting the user to the homepage
+    \end{enumerate}
+}
+{The actor is correctly logged in and the homepage is displayed}
+{
+    The provided email or password submitted is wrong
+}
+{
+    In case of exception the system will notify user with a human-readable message
+}
+\clearpage
+
+\usecase
+{2}
+{Registration} % name
+{Student, Educator, Email Service, GitHub Service} % actor
+{The actor browses and opens the webapp} % entry condition
+{ % event flow
+    \begin{enumerate}
+        \item The actor clicks the 'Sign up' button 
+        \item The actor fills the sign-up form with email and password
+        \item The actor submits the form and sends it to the system
+        \item The system calls Email Service API to send to the actor an email containing a secret code
+        \item The Email Service sends the email to the actor
+        \item The actor submits the received verification code
+        \item The system displays a success message about the verification of the email
+        \item The actor adds his personal information (name, surname, birth date) and submits the form
+        \item The student adds his GitHub username and submits the information
+        \item The system calls GitHub Service API to check if the username is valid
+        \item The GitHub Service sends the response to the system
+        \item The system displays a success message about the verification of GitHub username
+        \item The system processes the provided information and creates a new account
+    \end{enumerate}
+}
+{The actor signed up correctly} % exit condition
+{ % exceptions
+    \begin{enumerate}
+        \item A required registration field is missing when the form is submitted
+        \item A provided email is already registered in the system
+        \item A wrong verification code is submitted
+        \item A wrong GitHub username is submitted
+    \end{enumerate}
+}
+{ % notes
+    All the exceptions are treated the same: the system will notify user with a human-readable message and the system asks to retry
+}
+
 \subsection{Sequence Diagrams}
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.9\textwidth]{images/seq_diagrams/Login.png}
-    \caption{Login sequence diagram}
+    \includegraphics[width=0.8\textwidth]{images/seq_diagrams/Registration.jpg}
+    \caption{Registration sequence diagram}
     \label{fig:sequence_diagram}
 \end{figure}
 \clearpage
 
-\section{Performance Requirements}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{images/seq_diagrams/Login.jpg}
+    \caption{Registration sequence diagram}
+    \label{fig:sequence_diagram}
+\end{figure}
+\clearpage
 
 \section{Design Constraints}
 \subsection{Standards compliance}
