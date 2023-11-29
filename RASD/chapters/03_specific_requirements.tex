@@ -164,6 +164,159 @@ In case of exception the system will notify user with a human-readable message.
 \end{figure}
 \clearpage
 
+\subsection{List of functional requirements}
+\begin{longtable}{|c|l|}
+    \hline
+    \rowcolor[HTML]{B8C8D5} 
+    {\color[HTML]{000000} \textbf{Requirements}} & \multicolumn{1}{c|}{\cellcolor[HTML]{B8C8D5}{\color[HTML]{000000} \textbf{Description}}} \\ \hline
+    \endfirsthead
+    %
+    \endhead
+    %
+    R1 \label{R.1}& \begin{tabular}[c]{@{}l@{}}The system must allow the user to register himself to the system \\ by providing all the mandatory information.\end{tabular} \\ \hline
+    R2 \label{R.2}& The system must allow the students to link their GitHub account \\  \hline
+    R3 \label{R.3}& \begin{tabular}[c]{@{}l@{}}The system must verify the uniqueness of the mail and username \\ of the user to be registered.\end{tabular} \\ \hline
+    R4 \label{R.4}& \begin{tabular}[c]{@{}l@{}}The system must send a confirmation on the user's email after \\ his registration.\end{tabular} \\ \hline
+    R5 \label{R.5}& \begin{tabular}[c]{@{}l@{}}The system must allow the user to log into their account by \\ entering their username and password.\end{tabular} \\ \hline
+    R6 \label{R.6}& The system must allow educators to create tournaments. \\ \hline
+    R7 \label{R.7}& The system must allow the tournament creator to invite other educators. \\ \hline
+    R8 \label{R.8}& The systems must allow the tournament creator to end the tournament \\ \hline
+    R9 \label{R.9}& \begin{tabular}[c]{@{}l@{}} The system must allow the tournament creator to set the tournament \\ configuration. \end{tabular}\\ \hline
+    R10 \label{R.10}& The system must allow the tournament creator to define badges. \\ \hline
+    R11 \label{R.11}& The system must allow students to collect badges. \\ \hline
+    R12 \label{R.12}& The system must assign badges to eligible students. \\ \hline
+    R13 \label{R.13}& The system must allow the tournament creator to define new rules regarding badges. \\ \hline
+    R14 \label{R.14}& The system must allow the tournament creator to define new variables regarding badges. \\ \hline
+    R15 \label{R.15}& The system must notify educators when it is time to evaluate students' project. \\ \hline
+    R16 \label{R.16}& The system must notify educators when they are invited to join a tournament. \\ \hline
+    R17 \label{R.17}& The system must allow authorized educators to create battles. \\ \hline
+    R18 \label{R.18}& The system must allow the battle creator to upload the code kata. \\ \hline
+    R19 \label{R.19}& The system must allow the battle creator to set the battle configuration. \\ \hline
+    R20 \label{R.20}& The system must allow the educator to manually evaluate the students' project. \\ \hline
+    R21 \label{R.21}& The system must send the link to the repository to all students subscribed to the battle. \\ \hline
+    R22 \label{R.22}& The system must create the GitHub repository containing the code kata.\\ \hline
+    R23 \label{R.23}& The system must notify students when a new tournament is created. \\ \hline
+    R24 \label{R.24}& The system must allow students to subscribe to a tournament. \\ \hline
+    R25 \label{R.25}& \begin{tabular}[c]{@{}l@{}} The system must notify students when a new battle is created within the context \\ of a tournament they signed-up to.\end{tabular} \\ \hline
+    R26 \label{R.26}& \begin{tabular}[c]{@{}l@{}} The system must allow students to subscribe to a battle  within the context \\ of a tournament they signed-up to. \end{tabular}\\ \hline
+    R27 \label{R.27}& The system must allow students to invite other students to a battle. \\ \hline
+    R28 \label{R.28}& \begin{tabular}[c]{@{}l@{}} The system must notify students when they are invited to join \\ a battle by another student. \end{tabular} \\ \hline
+    R29 \label{R.29}& The system must notify students when the final battle rank becomes available. \\ \hline
+    R30 \label{R.30}& \begin{tabular}[c]{@{}l@{}} The system must notify students when the final tournament rank \\ becomes available. \end{tabular}\\ \hline
+    R31 \label{R.31}& \begin{tabular}[c]{@{}l@{}} The system must pull the latest submitted sources before the submission \\ deadline expired. \end{tabular}\\ \hline
+    R32 \label{R.32}& The system must analyze the students' projects. \\ \hline
+    R33 \label{R.33}& The system must run the students' projects. \\ \hline
+    R34 \label{R.34}& The system must evaluate the students' projects. \\ \hline
+    R35 \label{R.35}& The system must update the battle scores of the teams. \\ \hline
+    R36 \label{R.36}& The system must compute the battle rank. \\ \hline
+    R37 \label{R.37}& The system must update the students' personal tournament scores. \\ \hline
+    R38 \label{R.38}& The system must compute the tournament rank. \\ \hline
+    R39 \label{R.39}& The system must allow users to visualize ongoing tournaments. \\ \hline
+    R40 \label{R.40}& The system must allow users to visualize ongoing tournament ranks. \\ \hline
+    R41 \label{R.41}& The system must allow users to visualize students' profiles. \\ \hline
+    
+    \end{longtable}
+    \clearpage
+
+\subsection{Mapping on requirements}
+\begin{table}[H]
+    \begin{tabularx}{\textwidth}{X}
+        \toprule
+        \textbf{G1} Allow students to compete in a tournament                                                       \\ \midrule
+        \textbf{Requirements}                                                                                                        \\ \midrule
+        \textbf{R1} The system must allow the user to register himself to the system                                                    \\
+        \textbf{R2} The system must allow the user to register himself to the system                                         \\ 
+        \textbf{R3} The system must verify the uniqueness of the mail and username of the user to be registered                                        \\ 
+        \textbf{R4} The system must send a confirmation on the user's email after his registration.                         \\ 
+        \textbf{R5} The system must allow the user to log into their account by entering their username and password           \\ 
+        \textbf{R11} The system must allow students to collect badges        \\ 
+        \textbf{R12} The system must assign badges to eligible students          \\
+        \textbf{R17} The system must allow authorized educators to create battles        \\ 
+        \textbf{R18} The system must allow the battle creator to upload the code kata       \\ 
+        \textbf{R19} The system must allow the battle creator to set the battle configuration                \\ 
+        \textbf{R20} The system must allow the educator to manually evaluate the students' project          \\    
+        \textbf{R21} The system must send the link to the repository to all students subscribed to the battle            \\ 
+        \textbf{R22} The system must create the GitHub repository containing the code kata               \\ 
+        \textbf{R23} The system must notify students when a new tournament is created            \\ 
+        \textbf{R24} The system must allow students to subscribe to a tournament     \\ \midrule
+        \textbf{Domain Assumptions}                                                                                                  \\ \midrule
+                                                       \\ \bottomrule
+    \end{tabularx}
+\end{table}
+
+\begin{table}[H]
+    \begin{tabularx}{\textwidth}{X}
+        \toprule
+        \textbf{G2} Allows educators to create challenges for students.                                                    \\ \midrule
+        \textbf{Requirements}                                                                                                        \\ \midrule
+        \textbf{R1} The system must allow the user to register himself to the system                                                   \\
+        \textbf{R3} The system must verify the uniqueness of the mail and username of the user to be registered                                       \\ 
+        \textbf{R4} The system must send a confirmation on the user's email after his registration.                         \\ 
+        \textbf{R5} The system must allow the user to log into their account by entering their username and password           \\
+        \textbf{R6} The system must allow educators to create tournaments.              \\ 
+        \textbf{R7} The system must allow the tournament creator to invite other educators.         \\ 
+        \textbf{R8} The systems must allow the tournament creator to end the tournament     \\ 
+        \textbf{R9} The system must allow the tournament creator to set the tournament configuration          \\ 
+        \textbf{R10} The system must allow the tournament creator to define badges.      \\ 
+        \textbf{R11} The system must allow students to collect badges        \\ 
+        \textbf{R12} The system must assign badges to eligible students          \\  
+        \textbf{R13} The system must allow the tournament creator to define new rules regarding badges  \\ 
+        \textbf{R14} The system must allow the tournament creator to define new variables regarding badges.         \\ 
+        \textbf{R15} The system must notify educators when it is time to evaluate students' project      \\ 
+        \textbf{R16} The system must notify educators when they are invited to join a tournament      \\
+        \textbf{R17} The system must allow authorized educators to create battles        \\ 
+        \textbf{R18} The system must allow the battle creator to upload the code kata       \\
+        \textbf{R19} The system must allow the battle creator to set the battle configuration       \\ 
+        \textbf{R23} The system must notify students when a new tournament is created            \\ \midrule
+
+
+        
+        \textbf{Domain Assumptions}                                                                                                  \\ \midrule
+                                                   \\ \bottomrule
+    \end{tabularx}
+\end{table}
+
+\begin{table}[H]
+    \begin{tabularx}{\textwidth}{X}
+        \toprule
+        \textbf{G3} Allows educators to grade students' projects.                                                    \\ \midrule
+        \textbf{Requirements}                                                                                                        \\ \midrule
+        \textbf{R1} The system must allow the user to register himself to the system                                                     \\
+        \textbf{R3} The system must verify the uniqueness of the mail and username of the user to be registered                                       \\ 
+        \textbf{R4} The system must send a confirmation on the user's email after his registration                         \\
+        \textbf{R5} The system must allow the user to log into their account by entering their username and password           \\
+        \textbf{R6} The system must allow educators to create tournaments.              \\
+        \textbf{R7} The system must allow the tournament creator to invite other educators.         \\  
+        \textbf{R20} The system must allow the educator to manually evaluate the students' project.          \\ \midrule
+
+
+        \textbf{Domain Assumptions}                                                                                                  \\ \midrule
+                                                        \\ \bottomrule
+    \end{tabularx}
+\end{table}
+
+\begin{table}[H]
+    \begin{tabularx}{\textwidth}{X}
+        \toprule
+        \textbf{G4} Allows students to collect badges.                                                 \\ \midrule
+        \textbf{Requirements}                                                                                                        \\ \midrule
+        \textbf{R1} The system must allow the user to register himself to the system                                                  \\
+        \textbf{R2} The system must allow the user to register himself to the system                                               \\ 
+        \textbf{R3} The system must verify the uniqueness of the mail and username of the user to be registered                                        \\ 
+        \textbf{R4} The system must send a confirmation on the user's email after his registration.                         \\ 
+        \textbf{R5} The system must allow the user to log into their account by entering their username and password           \\ 
+        \textbf{R10} The system must allow the tournament creator to define badges.      \\ 
+        \textbf{R11} The system must allow students to collect badges        \\ 
+        \textbf{R12} The system must assign badges to eligible students          \\  
+        \textbf{R13} The system must allow the tournament creator to define new rules regarding badges  \\  
+        \textbf{R14} The system must allow the tournament creator to define new variables regarding badges.         \\ \midrule
+
+
+        \textbf{Domain Assumptions}                                                                                                  \\ \midrule
+                                                      \\ \bottomrule
+    \end{tabularx}
+\end{table}
+
 \section{Design Constraints}
 \subsection{Standards compliance}
 \subsection{Hardware limitations}
