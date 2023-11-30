@@ -85,6 +85,204 @@ In case of exception the system will notify user with a human-readable message.
 }
 
 \usecase
+{4}
+{Tournament creation}
+{Educator, EmailProvider}
+{The actor is already logged in the system.}
+{
+    \begin{enumerate}
+        \item The educator requires the "Create a new tournament" page.
+        \item The system shows the "Create a new tournament" page to the educator.
+        \item The educator fills the form with tournament name, description and deadline.
+        \item The educator can choose to define a set of badges that can be earned by the students.
+        \item The educator can invite other educators to join the tournament, giving them the possibility to create battles.
+        \item The system sends an email to the invited educators.
+    \end{enumerate}
+}
+{The tournament is created and the tournament page is shown.}
+{
+    \begin{itemize}
+        \item The educator provides an invalid name or description.
+        \item The educator provides a deadline that is not in the future.
+        \item The educator provides an invalid email.
+    \end{itemize}
+}
+{
+    In case of exception the system will notify user with a human-readable message.
+}
+
+%\subsubsection{Use case 5: Battle creation}
+
+\usecase
+{5}
+{Battle creation}
+{Educator, Student, EmailProvider}
+{The authorized educator is in the tournament page.}
+{
+    \begin{enumerate}
+        \item The educator requires the "Create a battle" page.
+        \item The system shows the "Create a battle" page to the educator.
+        \item The educator gives a name to the tournament.
+        \item The educator uploads the code kata.
+        \item The educator sets the minimum and maximum number of group members.
+        \item The educator sets a deadline to subscribe to the tournament.
+        \item The educator sets a deadline to submit the solutions.
+        \item The educator can choose to include a manual evaluation of the students' work.
+        \item The system sends an email to all the students that are subscribed to the tournament.
+    \end{enumerate}
+}
+{The battle is created and the battle page is shown.}
+{
+    \begin{itemize}
+        \item The educator provides an invalid name.
+        \item The system does not upload a code kata.
+        \item The educator provides an invalid number of group members.
+        \item The educator provides a deadline that is not in the future.
+    \end{itemize}
+}
+{
+    In case of exception the system will notify user with a human-readable message.
+}
+
+
+%\subsubsection{Use case 6: Tournament visualization}
+
+\usecase
+{6}
+{Tournament visualization}
+{Educator, Student}
+{The actor is already logged in the system.}
+{
+    \begin{enumerate}
+        \item The actor requires the "Ongoing tournaments" page.
+        \item The system shows the "Ongoing tournaments" page to the actor.
+        \item The actor selects a tournament.
+    \end{enumerate}
+}
+{The tournament page is shown.}
+{
+    None.
+}
+{}
+
+
+%\subsubsection{Use case 7: Joining a tournament}
+
+\usecase
+{7}
+{Joining a tournament}
+{Student, EmailProvider}
+{The authorized student is in the tournament page.}
+{
+    \begin{enumerate}
+        \item The student clicks "Join a tournament" button.
+        \item The system signs up the student to the tournament.
+        \item The system sends an email to the student.
+    \end{enumerate}
+}
+{The tournament page is shown.}
+{
+    None.
+}
+{}
+
+%\subsubsection{Use case 8: Joining a battle}
+
+\usecase
+{8.1}
+{Joining a battle - Singleton}
+{Student, EmailProvider}
+{The authorized student is in the tournament page and the battle allows singleton groups.}
+{
+    \begin{enumerate}
+        \item The student clicks the "Join" button corresponding to the battle.
+        \item The system shows a form to join the battle.
+        \item The student fills the form as a singleton.
+        \item The system signs up the student to the battle.
+        \item The system sends an email to the student.
+    \end{enumerate}
+}
+{The tournament page is shown.}
+{
+    None.
+}
+{}
+
+\usecase
+{8.2}
+{Joining a battle - Creating a group}
+{Student, EmailProvider}
+{The authorized student is in the tournament page.}
+{
+    \begin{enumerate}
+        \item The student clicks the "Join" button corresponding to the battle.
+        \item The system shows a form to join the battle.
+        \item The student fills the form with other students' email and clicks the "Create group" button.
+        \item The system creates the team but does not sign it up to the battle yet.
+        \item The system sends an email to the students.
+    \end{enumerate}
+}
+{The tournament page is shown.}
+{
+    \begin{enumerate}
+        \item The student does not provide valid emails.
+        \item The student does not provide a valid number of emails.
+    \end{enumerate}
+
+}
+{
+    In case of exception the system will notify user with a human-readable message.
+}
+
+
+\usecase
+{8.3}
+{Joining a battle - Joining a group}
+{Student, EmailProvider}
+{The authorized student is logged in the system.}
+{
+    \begin{enumerate}
+        \item The student requires the "Notification" page.
+        \item The system shows the "Notification" page to the student.
+        \item The student selects an invite.
+        \item The student clicks the "Join" button.
+        \item The system updates the group.
+        \item If constraints are met, the system signs up the group to the battle.
+        \item The system sends an email to the student.
+    \end{enumerate}
+}
+{The tournament page is shown.}
+{
+    The battle registration deadline has expired.
+}
+{
+    In case of exception the system will notify user with a human-readable message.
+}
+
+
+%\subsubsection{Use case 9: Battle execution}
+
+\usecase
+{9}
+{Battle execution}
+{Student, GitHub}
+{The student has received the email with the link to the code kata repository.}
+{
+    \begin{enumerate}
+        \item The student forks the code kata repository.
+        \item The student sets up the automated workflow on GitHub Actions.
+        \item The student pushes his code to the repository.
+    \end{enumerate}
+}
+{The system performs the automated evaluation and updates the battle score.}
+{
+    The battle submission deadline has expired.
+}
+{
+    In case of exception the system will notify user with a human-readable message.
+}
+
+\usecase
 {10}
 {Evaluation} % name
 {Student, Educator, GitHub Service} % actor
@@ -111,6 +309,43 @@ In case of exception the system will notify user with a human-readable message.
 { % notes
 }
 \clearpage
+
+\usecase
+{12}
+{Conclusion of a battle}
+{Student, EmailProvider}
+{The submission deadline (and, if required, the manual evaluation stage) has expired.}
+{
+    \begin{enumerate}
+        \item The system updates the tournament score and rank.
+        \item The system sends an email to the students.
+    \end{enumerate}
+}
+{The battle is closed.}
+{
+    None.
+}
+{}
+
+%\subsubsection{Use case 13: Conclusion of a tournament}
+
+\usecase
+{13}
+{Conclusion of a tournament}
+{Educator, Student, EmailProvider}
+{The authorized educator is in the tournament page.}
+{
+    \begin{enumerate}
+        \item The educator closes the tournament.
+        \item The system awards badges to the students.
+        \item The system sends an email to the students.
+    \end{enumerate}
+}
+{The tournament is closed.}
+{
+    None.
+}
+{}
 
 \usecase
 {14}
@@ -316,6 +551,8 @@ In case of exception the system will notify user with a human-readable message.
                                                       \\ \bottomrule
     \end{tabularx}
 \end{table}
+
+\section{Performance Requirements}
 
 \section{Design Constraints}
 \subsection{Standards compliance}
