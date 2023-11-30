@@ -650,15 +650,48 @@ In case of exception the system will notify user with a human-readable message.
 \end{table}
 
 \section{Performance Requirements}
+This section presents the performance requirements which need to be fulfilled to make the
+whole system as usable as possible.\\
+To provide the best user experience, the system must be able to provide a scalable, reactive 
+and capable of load-balancing backend, assure protection against DDoS attacks and provide a 
+responsive and fluid frontend.\\
+The frontend must handle correctly asynchronous interactions with the server, even when the 
+connection quality is bad, in order to provide the best possible experience.\\
 
 \section{Design Constraints}
+
 \subsection{Standards compliance}
+Specifications described in this document must be respected by the system. Source code of the application
+must be commented on and documented adequately. The system should respect the guidelines described
+by the GDPR.\\
+
 \subsection{Hardware limitations}
-\subsection{Any other constraint}
+The system requires a computer with a web browser and a stable internet connection.\\
+
+%\subsection{Any other constraint}
 
 \section{Software System Atttributes}
+
 \subsection{Reliability}
+In order to guarantee better reliability performances, all the scheduled maintenance of the system should
+be done during the night. Some functionalities of the system rely on external APIs, though the system should 
+not completely fail because of failures in one of those. It is also critical to avoid data loss through 
+redundant storage methods.
+
 \subsection{Availability}
+The system should offer its functionalities with an availability equal to 99.7\%. This means that, on average, 
+the system must be inaccessible for at most one day every year. To achieve this goal, the system should 
+provide a high redundancy for the most critical components.
+
 \subsection{Security}
+To protect users sensible data the system must collect the minimum data possible, and store them in an
+encrypted database. The connection between the application must follows modern standard secure protocols as
+HTTPS. Not only passwords should be considered as sensible data, but also users' email addresses and GitHub accounts. 
+All passwords must be salted and hashed.
+
 \subsection{Maintainability}
+The system should be designed to be easily maintainable. This means that the code should be well documented 
+and commented, and the architecture should be modular and well designed.
+
 \subsection{Portability}
+The application must run on any OS (Windows, Linux, MacOS) that supports a web browser.
