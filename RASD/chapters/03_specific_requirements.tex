@@ -24,6 +24,22 @@ network (LTE/3G/4G/5G).\\
     \caption{Unregistered user (student or educator) use case diagram}
     \label{fig:use_case_diagram}
 \end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{images/use_cases_diagrams/educators_functions.png}
+    \caption{Educator use case diagram}
+    \label{fig:use_case_diagram}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{images/use_cases_diagrams/students_functions.png}
+    \caption{Student use case diagram}
+    \label{fig:use_case_diagram}
+\end{figure}
+
+
 \clearpage
 
 \subsection{Use Cases Description}
@@ -85,9 +101,9 @@ In case of exception the system will notify user with a human-readable message.
 }
 
 \usecase
-{4}
+{3}
 {Tournament creation}
-{Educator, EmailProvider}
+{Educator, Email Service}
 {The actor is already logged in the system.}
 {
     \begin{enumerate}
@@ -111,12 +127,10 @@ In case of exception the system will notify user with a human-readable message.
     In case of exception the system will notify user with a human-readable message.
 }
 
-%\subsubsection{Use case 5: Battle creation}
-
 \usecase
-{5}
+{4}
 {Battle creation}
-{Educator, Student, EmailProvider}
+{Educator, Student, Email Service}
 {The authorized educator is in the tournament page.}
 {
     \begin{enumerate}
@@ -145,10 +159,8 @@ In case of exception the system will notify user with a human-readable message.
 }
 
 
-%\subsubsection{Use case 6: Tournament visualization}
-
 \usecase
-{6}
+{5}
 {Tournament visualization}
 {Educator, Student}
 {The actor is already logged in the system.}
@@ -166,12 +178,10 @@ In case of exception the system will notify user with a human-readable message.
 {}
 
 
-%\subsubsection{Use case 7: Joining a tournament}
-
 \usecase
-{7}
+{6}
 {Joining a tournament}
-{Student, EmailProvider}
+{Student, Email Service}
 {The authorized student is in the tournament page.}
 {
     \begin{enumerate}
@@ -186,12 +196,10 @@ In case of exception the system will notify user with a human-readable message.
 }
 {}
 
-%\subsubsection{Use case 8: Joining a battle}
-
 \usecase
-{8.1}
+{7.1}
 {Joining a battle - Singleton}
-{Student, EmailProvider}
+{Student, Email Service}
 {The authorized student is in the tournament page and the battle allows singleton groups.}
 {
     \begin{enumerate}
@@ -209,9 +217,9 @@ In case of exception the system will notify user with a human-readable message.
 {}
 
 \usecase
-{8.2}
+{7.2}
 {Joining a battle - Creating a group}
-{Student, EmailProvider}
+{Student, Email Service}
 {The authorized student is in the tournament page.}
 {
     \begin{enumerate}
@@ -236,7 +244,7 @@ In case of exception the system will notify user with a human-readable message.
 
 
 \usecase
-{8.3}
+{7.3}
 {Joining a battle - Joining a group}
 {Student, EmailProvider}
 {The authorized student is logged in the system.}
@@ -260,12 +268,10 @@ In case of exception the system will notify user with a human-readable message.
 }
 
 
-%\subsubsection{Use case 9: Battle execution}
-
 \usecase
-{9}
+{8}
 {Battle execution}
-{Student, GitHub}
+{Student, GitHub Service}
 {The student has received the email with the link to the code kata repository.}
 {
     \begin{enumerate}
@@ -283,7 +289,7 @@ In case of exception the system will notify user with a human-readable message.
 }
 
 \usecase
-{10}
+{9}
 {Evaluation} % name
 {Student, Educator, GitHub Service} % actor
 {The student has committed the code.} % entry condition
@@ -311,9 +317,9 @@ In case of exception the system will notify user with a human-readable message.
 \clearpage
 
 \usecase
-{12}
+{10}
 {Conclusion of a battle}
-{Student, EmailProvider}
+{Student, Email Service}
 {The submission deadline (and, if required, the manual evaluation stage) has expired.}
 {
     \begin{enumerate}
@@ -327,12 +333,11 @@ In case of exception the system will notify user with a human-readable message.
 }
 {}
 
-%\subsubsection{Use case 13: Conclusion of a tournament}
 
 \usecase
-{13}
+{11}
 {Conclusion of a tournament}
-{Educator, Student, EmailProvider}
+{Educator, Student, Email Service}
 {The authorized educator is in the tournament page.}
 {
     \begin{enumerate}
@@ -348,10 +353,10 @@ In case of exception the system will notify user with a human-readable message.
 {}
 
 \usecase
-{14}
+{12}
 {Profile visualization} % name
 {Student, Educator} % actor
-{The actor is logged-in in the system.} % entry condition
+{The actor is logged in the system.} % entry condition
 { % event flow
     \begin{enumerate}
         \item The actor searches a student profile.
