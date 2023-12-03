@@ -517,25 +517,25 @@ In case of exception the system will notify user with a human-readable message.
     R10 \label{R.10}& The system must allow the tournament creator to define badges. \\ \hline
     R11 \label{R.11}& The system must allow students to collect badges. \\ \hline
     R12 \label{R.12}& The system must assign badges to eligible students. \\ \hline
-    R13 \label{R.13}& The system must allow the tournament creator to define new rules regarding badges. \\ \hline
-    R14 \label{R.14}& The system must allow the tournament creator to define new variables regarding badges. \\ \hline
-    R15 \label{R.15}& The system must notify educators when it is time to evaluate students' project. \\ \hline
-    R16 \label{R.16}& The system must notify educators when they are invited to join a tournament. \\ \hline
+    R13 \label{R.13}& \begin{tabular}[c]{@{}l@{}} The system must allow the tournament creator to define new rules \\ regarding badges. \end{tabular} \\ \hline
+    R14 \label{R.14}& \begin{tabular}[c]{@{}l@{}} The system must allow the tournament creator to define new variables \\ regarding badges. \end{tabular} \\ \hline
+    R15 \label{R.15}& \begin{tabular}[c]{@{}l@{}} The system must notify educators when it is time to evaluate \\ students' project. \end{tabular} \\ \hline
+    R16 \label{R.16}& \begin{tabular}[c]{@{}l@{}} The system must notify educators when they are invited to join \\  a tournament. \end{tabular} \\ \hline
     R17 \label{R.17}& The system must allow authorized educators to create battles. \\ \hline
     R18 \label{R.18}& The system must allow the battle creator to upload the code kata. \\ \hline
     R19 \label{R.19}& The system must allow the battle creator to set the battle configuration. \\ \hline
-    R20 \label{R.20}& The system must allow the educator to manually evaluate the students' project. \\ \hline
-    R21 \label{R.21}& The system must send the link to the repository to all students subscribed to the battle. \\ \hline
+    R20 \label{R.20}& \begin{tabular}[c]{@{}l@{}} The system must allow the educator to manually evaluate \\ the students' project. \end{tabular} \\ \hline
+    R21 \label{R.21}& \begin{tabular}[c]{@{}l@{}} The system must send the link to the repository to all students \\ subscribed to the battle. \end{tabular} \\ \hline
     R22 \label{R.22}& The system must create the GitHub repository containing the code kata.\\ \hline
     R23 \label{R.23}& The system must notify students when a new tournament is created. \\ \hline
     R24 \label{R.24}& The system must allow students to subscribe to a tournament. \\ \hline
-    R25 \label{R.25}& \begin{tabular}[c]{@{}l@{}} The system must notify students when a new battle is created within the context \\ of a tournament they signed-up to.\end{tabular} \\ \hline
-    R26 \label{R.26}& \begin{tabular}[c]{@{}l@{}} The system must allow students to subscribe to a battle  within the context \\ of a tournament they signed-up to. \end{tabular}\\ \hline
+    R25 \label{R.25}& \begin{tabular}[c]{@{}l@{}} The system must notify students when a new battle is created \\ within the context of a tournament they signed-up to.\end{tabular} \\ \hline
+    R26 \label{R.26}& \begin{tabular}[c]{@{}l@{}} The system must allow students to subscribe to a battle  within \\  the context of a tournament they signed-up to. \end{tabular}\\ \hline
     R27 \label{R.27}& The system must allow students to invite other students to a battle. \\ \hline
     R28 \label{R.28}& \begin{tabular}[c]{@{}l@{}} The system must notify students when they are invited to join \\ a battle by another student. \end{tabular} \\ \hline
-    R29 \label{R.29}& The system must notify students when the final battle rank becomes available. \\ \hline
+    R29 \label{R.29}& \begin{tabular}[c]{@{}l@{}} The system must notify students when the final battle rank \\ becomes available. \end{tabular} \\ \hline
     R30 \label{R.30}& \begin{tabular}[c]{@{}l@{}} The system must notify students when the final tournament rank \\ becomes available. \end{tabular}\\ \hline
-    R31 \label{R.31}& \begin{tabular}[c]{@{}l@{}} The system must pull the latest submitted sources before the submission \\ deadline expired. \end{tabular}\\ \hline
+    R31 \label{R.31}& \begin{tabular}[c]{@{}l@{}} The system must pull the latest submitted sources before \\ the submission deadline expired. \end{tabular}\\ \hline
     R32 \label{R.32}& The system must analyze the students' projects. \\ \hline
     R33 \label{R.33}& The system must run the students' projects. \\ \hline
     R34 \label{R.34}& The system must evaluate the students' projects. \\ \hline
@@ -546,9 +546,7 @@ In case of exception the system will notify user with a human-readable message.
     R39 \label{R.39}& The system must allow users to visualize ongoing tournaments. \\ \hline
     R40 \label{R.40}& The system must allow users to visualize ongoing tournament ranks. \\ \hline
     R41 \label{R.41}& The system must allow users to visualize students' profiles. \\ \hline
-    
     \end{longtable}
-    \clearpage
 
 \subsection{Mapping on requirements}
 \begin{table}[H]
@@ -579,6 +577,11 @@ In case of exception the system will notify user with a human-readable message.
         \textbf{R30} The system must notify students when the final tournament rank becomes available     \\ 
         \textbf{R31} The system must pull the latest submitted sources before the submission deadline expired     \\ 
         \textbf{R35} The system must update the battle scores of the teams       \\ 
+    \end{tabularx}
+\end{table}
+
+\begin{table}[H]
+    \begin{tabularx}{\textwidth}{X}
         \textbf{R36} The system must compute the battle rank     \\  
         \textbf{R37} The system must update the students' personal tournament scores         \\ 
         \textbf{R38} The system must compute the tournament rank         \\
@@ -623,10 +626,7 @@ In case of exception the system will notify user with a human-readable message.
         \textbf{R19} The system must allow the battle creator to set the battle configuration       \\ 
         \textbf{R23} The system must notify students when a new tournament is created            \\
         \textbf{R41} The system must allow users to visualize students' profiles     \\
-         \midrule
-
-
-        
+        \midrule
         \textbf{Domain Assumptions}                                                                                                  \\ \midrule
         \textbf{D1} Users provide correct information during the registration process \\   
         \textbf{D3} Users have a stable and reliable Internet connection \\
@@ -655,8 +655,6 @@ In case of exception the system will notify user with a human-readable message.
         \textbf{R34} The system must evaluate the students' projects     \\ 
         \textbf{R38} The system must compute the tournament rank                 \\ 
         \midrule
-
-
         \textbf{Domain Assumptions}                                                                                                  \\ \midrule
         \textbf{D1} Users provide correct information during the registration process \\           
         \textbf{D2} Students have an email and a GitHub account     \\
@@ -686,16 +684,36 @@ In case of exception the system will notify user with a human-readable message.
         \textbf{R32} The system must analyze the students' projects      \\ 
         \textbf{R38} The system must compute the tournament rank                 \\ 
         \midrule
-
-
         \textbf{Domain Assumptions}                                                                                                  \\ \midrule
         \textbf{D1} Users provide correct information during the registration process \\          
         \textbf{D3} Users have a stable and reliable Internet connection \\
-         
         \bottomrule
     \end{tabularx}
 \end{table}
 
+\clearpage
+\subsection{Mapping on use cases}
+\begin{table}[H]
+    \begin{tabularx}{\textwidth}{XXX}
+        \toprule
+        \textbf{Use Case}                     & \textbf{Requirements} \\ \midrule
+        UC1 - Login                           & R5                   \\
+        UC2 - Registration                    & R1 R2 R3 R4               \\
+        UC3 - Tournament creation             & R6 R7 R9 R10 R13 R14 R23  \\
+        UC4 - Battle creation                 & R17 R18 R19 R21 R25       \\
+        UC5 - Tournament visualization        & R39 R40          \\
+        UC6 - Joining a tournament            & R16 R24          \\
+        UC7 - Joining a battle                & R26 R27 R28      \\
+        UC8 - Battle execution                & R22              \\
+        UC9 - Evaluation                      & R15 R20 R31 R32 R33 R34     \\
+        UC10 - Conclusion of a battle         & R29 R35 R36 R37 R38         \\
+        UC11 - Conclusion of a tournament     & R8 R11 R12 R30              \\
+        UC12 - Profile visualization          & R41              \\
+        \bottomrule
+    \end{tabularx}
+\end{table}
+
+\clearpage
 \section{Performance Requirements}
 This section presents the performance requirements which need to be fulfilled to make the
 whole system as usable as possible.\\
