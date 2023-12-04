@@ -10,6 +10,13 @@ sig Date {
 	value: Int  -- value represents the distance in days from 1-1-1900
 } {value >= 0}
 sig CodeKata {}
+sig BadgeName{}
+sig BadgeDescription{}
+
+sig Badge {
+	name: BadgeName,
+	description: BadgeDescription
+} 
 
 abstract sig User {
 	nickname: Nickname,
@@ -17,13 +24,14 @@ abstract sig User {
 	password: Password,
 	name: Name,
 	surname: Surname,
-	dateOfBirth: Date,
+	dateOfBirth: Date
 }
 
 sig Educator extends User {}
 
 sig Student extends User {
-	githubAccount: GitHubAccount
+	githubAccount: GitHubAccount,
+	badges: set Badge
 }
 
 sig SubscribedStudent {
@@ -40,6 +48,7 @@ sig Tournament {
 	name: Name,
 	creator: Educator,
 	educators: some Educator,
+	badges: set Badge,
 	subscribedStudents: set SubscribedStudent,
 	registrationDeadline: Date,
 	battles: set Battle,
@@ -129,8 +138,21 @@ fact tournamentNameIsUnique {
 	no disj t1, t2: Tournament | t1.name = t2.name
 }
 
+fact tournamentBadgeIsUnique {
+	all t: Tournament | no disj b1, b2: Badge | b1 in t.badges and b2 in t.badges and b1.name = b2.name and b1.description = b2.description
+}
+
 fact tournamentExistsOnlyWithCreator {
 	all t: Tournament | one e : Educator | e in t.creator
+}
+
+fact badgeExistsOnlyWithTournament {
+	all b: Badge | one t: Tournament | b in t.badges
+}
+
+fact studentBadgeIsAmongTournamentBadges {
+	all s: Student, b: s.badges | one t: Tournament | b in t.badges and s in t.subscribedStudents.student
+	and t.status = TEnded
 }
 
 fact creatorHasAccessToTournament {
@@ -257,4 +279,4 @@ check activeBattleWasOnceAvailable for 5 but 1 Tournament, 1 Battle, 2 Student
 check endedBattleWasOnceActive for 5 but 1 Tournament, 1 Battle, 2 Student
 
 -- Run
-run show for 5 but 1 Tournament, 1 Battle, 2 Student
+run show for 5 but 1 Tournament, 1 Battle, 2 Student, 2 Badge
