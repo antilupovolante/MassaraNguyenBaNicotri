@@ -356,7 +356,9 @@ pred example[b: Battle, t: Tournament] {
 	t.status = TAvailable
 	tournamentDeadlineExpires[t];
 	addABattleToTournament[t, b];
-	battleRegistrationDeadlineExpires[b]; battleEnds[b]; tournamentEnds[t]
+	battleRegistrationDeadlineExpires[b]; 
+	battleEnds[b]; 
+	tournamentEnds[t]
 }
 
 pred example1[b, b1: Battle, t: Tournament] {
