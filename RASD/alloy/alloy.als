@@ -351,25 +351,6 @@ check endedBattleDoesNotGoBackToAPreviousStatus
 check activeBattleDoesNotGoBackToAPreviousStatus
 
 -- Run
-pred show [t: Tournament, b: Battle] {
-	#t.subscribedStudents > 0
-	#t.battles > 0
-	#b.teams > 0
-}
-
-pred evolutionOfBattle[b: Battle, t: Tournament] {
-	t.status = TActive
-	b.status = BAvailable
-	b in t.battles
-	battleRegistrationDeadlineExpires[b]; 
-	battleEnds[b]
-}
-
-pred evolutionOfTournament[t: Tournament] {
-	t.status = TAvailable
-	tournamentDeadlineExpires[t]; 
-	tournamentEnds[t]
-}
 
 pred example[b: Battle, t: Tournament] {
 	t.status = TAvailable
@@ -388,18 +369,5 @@ pred example1[b, b1: Battle, t: Tournament] {
 	tournamentEnds[t]
 }
 
-pred example2[b: Battle, t: Tournament] {
-	t.status = TAvailable
-	tournamentDeadlineExpires[t];
-	addABattleToTournament[t, b];
-	evolutionOfBattle[b, t];
-	tournamentEnds[t]
-}
-
-
-run show for 5 but 1 Tournament
-run evolutionOfBattle for 5 but 1 Tournament
-run evolutionOfTournament for 5 but 1 Tournament
 run example for 5 but 1 Tournament, 1 Battle
 run example1 for 5 but 1 Tournament, 2 Battle
-run example2 for 5 but 1 Tournament, 1 Battle
