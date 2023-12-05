@@ -42,7 +42,7 @@ sig SubscribedStudent {
 abstract sig TournamentStatus{}
 one sig TAvailable, TActive, TEnded extends TournamentStatus{}
 abstract sig BattleStatus{}
-one sig BAvailable, BActive, BEnded extends BattleStatus{}
+one sig BNotCreated, BAvailable, BActive, BEnded extends BattleStatus{}
 
 sig Tournament {
 	name: Name,
@@ -51,7 +51,7 @@ sig Tournament {
 	badges: set Badge,
 	subscribedStudents: set SubscribedStudent,
 	registrationDeadline: Date,
-	battles: set Battle,
+	var battles: set Battle,
 	var status: TournamentStatus
 }
 
@@ -171,6 +171,23 @@ fact registrationDeadlineIsAfterStudentsDatesOfBirth {
 	all t: Tournament, s: t.subscribedStudents.student | t.registrationDeadline.value > s.dateOfBirth.value
 }
 
+fact battlesCannotBeRemoved {
+	all t: Tournament | always (t.battles in t.battles')
+}
+
+fact battlesCannotBeAddedIfTournamentEnded {
+	all t: Tournament | always (t.status = TEnded implies t.battles' = t.battles)
+}
+
+fact endedTournamentCannotGoBackToAPreviousStatus {
+	all t: Tournament | always (t.status = TEnded implies t.status' = TEnded)
+}
+
+fact activeTournamentCannotGoBackToAPreviousStatus {
+	all t: Tournament | always (t.status = TActive implies (t.status' = TActive or t.status' = TEnded))
+}
+
+
 -- Rules
 fact minimumNumberOfStudentsIsLessThanMaximumNumberOfStudents {
 	all r: Rules | r.minimumNumberOfStudents <= r.maximumNumberOfStudents
@@ -183,6 +200,14 @@ fact rulesExistsOnlyWithBattle {
 -- Battle
 fact creatorHasPermissionToCreateBattle {
 	all t: Tournament, b: t.battles | b.creator in t.educators
+}
+
+fact battleExistsOnlyWithTournament {
+	all b: Battle | one t: Tournament | eventually (b in t.battles)
+}
+
+fact battleIsNotCreatedIfItDoesNotBelongToATournamentYet{
+	all b: Battle | b.status = BNotCreated implies (all t: Tournament | b not in t.battles)
 }
 
 fact registrationDeadlineIsAfterTournamentRegistrationDeadline {
@@ -213,17 +238,42 @@ fact teamStudentsAreSubscribedToBattle {
 	all b: Battle, t: b.teams, s: t.students | s in b.subscribedStudents
 }
 
+fact allSubscribedStudentsAreInATeam {
+	all b: Battle | all s: b.subscribedStudents | one t: b.teams | s in t.students
+}
+
 fact availableTournamentHasNoBattle {
 	all t: Tournament | t.status = TAvailable implies t.battles = none
 }
 
 fact endedTournamentHasNoaActiveBattle {
-	all t: Tournament | t.status = TEnded implies all b: t.battles | b.status = BEnded
+	all t: Tournament | t.status = TEnded implies (all b: t.battles | b.status = BEnded)
 }
 
 fact activeBattleImpliesActiveTournament {
-	all t: Tournament, b: t.battles | b.status = BActive implies t.status = TActive
+	all t: Tournament | (some b: t.battles | b.status = BActive) implies t.status = TActive
 }
+
+fact availableBattleImpliesActiveTournament {
+	all t: Tournament | (some b: t.battles | b.status = BAvailable) implies t.status = TActive and t.status' = TActive
+}
+
+fact activeOrAvailableBattleImpliesNotEndedTournament {
+	all t: Tournament | (some b: t.battles | (b.status = BActive or b.status = BAvailable)) implies t.status != TEnded
+}
+
+fact endedBattleCannotGoBackToAPreviousStatus {
+	all b: Battle | always (b.status = BEnded implies b.status' = BEnded)
+}
+
+fact activeBattleCannotGoBackToAPreviousStatus {
+	all b: Battle | always (b.status = BActive implies (b.status' = BActive or b.status' = BEnded))
+}
+
+fact availableBattleCannotGoBackToAPreviousStatus {
+	all b: Battle | always (b.status = BAvailable implies (b.status' = BAvailable or b.status' = BActive))
+}
+
 
 -- Predicates
 
@@ -249,10 +299,12 @@ pred battleEnds[b: Battle] {
 	b.status' = BEnded
 }
 
-pred show [t: Tournament, b: Battle] {
-	#t.subscribedStudents > 0
-	#t.battles > 0
-	#b.teams > 0
+pred addABattleToTournament[t: Tournament, b: Battle] {
+	t.status = TActive
+	b.status = BNotCreated
+	t.battles' = t.battles + b
+	b.status' = BAvailable
+	t.status' = TActive
 }
 
 -- Assertions
@@ -273,10 +325,81 @@ assert endedBattleWasOnceActive {
 	all b: Battle | battleEnds[b] implies once b.status = BActive
 }
 
-check activeTournamentWasOnceAvailable for 5 but 1 Tournament, 1 Battle, 2 Student
-check endedTournamentWasOnceActive for 5 but 1 Tournament, 1 Battle, 2 Student
-check activeBattleWasOnceAvailable for 5 but 1 Tournament, 1 Battle, 2 Student
-check endedBattleWasOnceActive for 5 but 1 Tournament, 1 Battle, 2 Student
+assert endedTournamentDoesNotGoBackToPreviousStatus{
+	all t: Tournament | always (t.status = TEnded implies t.status' = TEnded)
+}
+
+assert activeTournamentDoesNotGoBackToPreviousStatus{
+	all t: Tournament | always (t.status = TActive implies (t.status' = TEnded or t.status' = TActive))
+}
+
+assert endedBattleDoesNotGoBackToAPreviousStatus {
+	all b: Battle | always (b.status = BEnded implies b.status' = BEnded)
+}
+
+assert activeBattleDoesNotGoBackToAPreviousStatus {
+	all b: Battle | always (b.status = BActive implies (b.status' = BEnded or b.status' = BActive))
+}
+
+check activeTournamentWasOnceAvailable
+check endedTournamentWasOnceActive
+check activeBattleWasOnceAvailable
+check endedBattleWasOnceActive
+check endedTournamentDoesNotGoBackToPreviousStatus
+check activeTournamentDoesNotGoBackToPreviousStatus
+check endedBattleDoesNotGoBackToAPreviousStatus
+check activeBattleDoesNotGoBackToAPreviousStatus
 
 -- Run
-run show for 5 but 1 Tournament, 1 Battle, 2 Student, 2 Badge
+pred show [t: Tournament, b: Battle] {
+	#t.subscribedStudents > 0
+	#t.battles > 0
+	#b.teams > 0
+}
+
+pred evolutionOfBattle[b: Battle, t: Tournament] {
+	t.status = TActive
+	b.status = BAvailable
+	b in t.battles
+	battleRegistrationDeadlineExpires[b]; 
+	battleEnds[b]
+}
+
+pred evolutionOfTournament[t: Tournament] {
+	t.status = TAvailable
+	tournamentDeadlineExpires[t]; 
+	tournamentEnds[t]
+}
+
+pred example[b: Battle, t: Tournament] {
+	t.status = TAvailable
+	tournamentDeadlineExpires[t];
+	addABattleToTournament[t, b];
+	battleRegistrationDeadlineExpires[b]; battleEnds[b]; tournamentEnds[t]
+}
+
+pred example1[b, b1: Battle, t: Tournament] {
+	t.status = TAvailable
+	tournamentDeadlineExpires[t];
+	addABattleToTournament[t, b];
+	addABattleToTournament[t, b1];
+	battleRegistrationDeadlineExpires[b];
+	battleEnds[b];
+	tournamentEnds[t]
+}
+
+pred example2[b: Battle, t: Tournament] {
+	t.status = TAvailable
+	tournamentDeadlineExpires[t];
+	addABattleToTournament[t, b];
+	evolutionOfBattle[b, t];
+	tournamentEnds[t]
+}
+
+
+run show for 5 but 1 Tournament
+run evolutionOfBattle for 5 but 1 Tournament
+run evolutionOfTournament for 5 but 1 Tournament
+run example for 5 but 1 Tournament, 1 Battle
+run example1 for 5 but 1 Tournament, 2 Battle
+run example2 for 5 but 1 Tournament, 1 Battle
