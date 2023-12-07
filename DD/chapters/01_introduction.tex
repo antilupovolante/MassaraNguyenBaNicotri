@@ -1,0 +1,101 @@
+\chapter{Introduction}
+
+\section{Purpose}
+In the last years, more and more students are becoming interested in programming and many educators have realised 
+the need of new innovative methods to improve coding skills. \\
+CodeKataBattle aims to assist students in enhancing their programming skills by challenging them with creative tasks
+ in a competitive and stimulating environment. \\
+ \\
+ The following document wants to describe the system focusing on the design choiches, descripting at a high level the technologies
+  and components used to implement the platform, paying attention also to the interactive behaviour of system users.\\
+  
+\section{Scope}
+CodeKataBattle is a web application that allows students to compete in tournaments created by educators. During a tournament, educators 
+can create battles and students can join them. During a battle, students can create a team and complete the project with their code, which 
+will be evaluated by the system and optionally by the educators. Battle scores contribute to both battle and tournament ranks and at the end 
+of a tournament students can also collect badges based on their performance.\\
+For a more detailed description of the features that the system offers to end users, please refer to the RASD.\\
+
+\section{Definitions, Acronyms, Abbreviations}
+\subsection{Definitions}
+\begin{table}[H]
+    \centering
+    \begin{tabular}{|c|l|}
+    \hline
+    \rowcolor[HTML]{B8C8D5} 
+    \textbf{Definitions} & \multicolumn{1}{c|}{\cellcolor[HTML]{B8C8D5}\textbf{Meaning}} \\ \hline
+    Code Kata & \begin{tabular}[c]{@{}l@{}}A code kata battle is a programming exercise in a programming language \\
+        of choice. The exercise includes a brief textual description and a software \\
+        project with build automation scripts that contains a set of test cases that the \\
+        program must pass, but without the program implementation. \end{tabular}  \\ \hline
+    Tournament & \begin{tabular}[c]{@{}l@{}}A tournament is a set of battles. It is created by an educator and it is \\
+        composed by a set of rules and possible badges. \end{tabular}  \\ \hline
+    Battle & \begin{tabular}[c]{@{}l@{}}A battle is a competition between teams. It is created by an educator \\
+        and it is composed by a set of rules. \end{tabular}  \\ \hline
+    Team & \begin{tabular}[c]{@{}l@{}}A team is a group of students that compete in a battle. \end{tabular}  \\ \hline
+    Badge & \begin{tabular}[c]{@{}l@{}}A badge is a reward that a student can obtain by participating in a \\
+        tournament. \end{tabular}  \\ \hline
+    Application User Interface & \begin{tabular}[c]{@{}l@{}}The application user interface defines the operations that can be 
+        invoked on the component which offers it. \end{tabular}  \\ \hline
+    Demilitarized zone & \begin{tabular}[c]{@{}l@{}}A demilitarized zone is a middle ground between an organization's trusted 
+        internal network and an untrusted, external one. \end{tabular}  \\ \hline
+    \end{tabular}
+\end{table}
+
+\subsection{Acronyms}
+\begin{table}[H]
+    \centering
+    \begin{tabular}{|c|l|}
+    \hline
+    \rowcolor[HTML]{B8C8D5} 
+    \textbf{Acronyms} & \multicolumn{1}{c|}{\cellcolor[HTML]{B8C8D5}\textbf{Meaning}} \\ \hline
+    CKB & CodeKataBattle  \\ \hline
+    UI & User Interface  \\ \hline
+    RASD & Requirements Analysis and Specification Document  \\ \hline
+    DD & Design Document  \\ \hline
+    \end{tabular}
+\end{table}
+
+\subsection{Abbreviations}
+\begin{table}[H]
+    \centering
+    \begin{tabular}{|c|l|}
+    \hline
+    \rowcolor[HTML]{B8C8D5} 
+    \textbf{Abbreviations} & \multicolumn{1}{c|}{\cellcolor[HTML]{B8C8D5}\textbf{Meaning}} \\ \hline
+    WP & World Phenomena  \\ \hline
+    SP & Shared Phenomena \\ \hline
+    G  & Goal             \\ \hline
+    R  & Requirement             \\ \hline
+    UC  & Use Case             \\ \hline
+    w.r.t. & with reference to \\ \hline
+    e.g. & exempli gratia \\ \hline
+    i.e. & id est \\ \hline
+    etc. & etcetera \\ \hline
+    DB & Database \\ \hline
+    API & Application Programming Interface \\ \hline
+    DMZ & Demilitarized Zone \\ \hline
+    \end{tabular}
+\end{table}
+
+\section{Revision history}
+
+\section{Reference Documents}
+\begin{itemize}
+    \item Course slides on WeBeep. 
+    \item RASD and DD assignment document.
+    \item CodeKataBattle Requirements Analysis and Specification Document.
+\end{itemize}
+
+\section{Document Structure}
+The document is structured as follows:
+\begin{itemize}
+    \item \textbf{Introduction}: The first chapter includes the introduction in which is explained the purpose of the document, then, s brief recall of the concepts introduced in the RASD is given.
+    Finally, important information for the readers is given, i.e. definitions, acronyms, synonyms and the set of reference documents.
+    \item \textbf{Architectural Design}: This chapter includes the description of the system architecture, the design choices and the interaction between the components. It includes a component view, a deployment view and a runtime view.
+    \item \textbf{User Interface Design}: This chapter includes the description of the user interface design, with mockups and UX diagrams.
+    \item \textbf{Requirements Traceability}: This chapter includes the mapping between the requirements defined in the RASD and the design elements specified in the DD.
+    \item \textbf{Implementation, Integration and Test Plan}: This chapter includes the description of the implementation, integration and test plan to which developers have to stick in order to produce the correct system in a correct way.
+    \item \textbf{Effort Spent}: This chapter includes the description of the effort spent by each member of the group.
+    \item \textbf{References}: This chapter includes the list of the documents used to write this document.
+\end{itemize}
