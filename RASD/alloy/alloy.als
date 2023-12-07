@@ -37,7 +37,7 @@ sig Student extends User {
 sig SubscribedStudent {
 	student: Student,
 	var score: Int
-} {score >= 0}
+} {score >= 0 and score <= 100}
 
 abstract sig TournamentStatus{}
 one sig TAvailable, TActive, TEnded extends TournamentStatus{}
@@ -63,7 +63,7 @@ sig Rules {
 sig Team {
 	students: some Student,
 	var score: Int
-} {score >= 0}
+} {score >= 0 and score <= 100}
 
 sig Battle {
 	creator: Educator,
