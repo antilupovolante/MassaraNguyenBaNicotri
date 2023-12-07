@@ -20,25 +20,62 @@ The web server is responsible for the communication with the clients and for the
 The application server holds the business logic of the application and it can communicate with the database server to retrieve and store data, also with the GitHub platform and the Email Service. 
 
 \section{Component view}
+
+\subsection{High level view}
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{images/component_view/Component_view.png}
     \caption{High level component view}
 \end{figure}
+The figure above shows the system components and interfaces at a high level.
+\begin{itemize}
+    \item \textbf{CKB Server: } it represents the core of the CKB system and it contains all the business logic.
+    \item \textbf{UserApp: } it represents the web application used by the users to access the CKB platform. Users register and log into the system through the 
+    \textbf{Auth interface} and access the functionalities offered by the system through the \textbf{CKB API}.
+    \item \textbf{Database Server: } it represents the DBMS used to store the data of the system. The system can access the data through the \textbf{DBMS API}.
+    \item \textbf{Mail Server: } it represents the mail server used to send notifications to the users. The system can access the mail server through the \textbf{MailServer API}.
+\end{itemize}
 
+\subsection{CKB Server detailed view}
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{images/component_view/CKB_component.png}
     \caption{CKB server component view}
 \end{figure}
+The figure above shows the internal componenents of the CKB server.
+\begin{itemize}
+    \item \textbf{AuthHandler: } it handles the login and registration of the users. It offers the \textbf{AuthCheckInterface} to allow other components to check 
+    if a user is authorized. It communicates with the \textbf{MailInterface} to manage confirmation emails and with the \textbf{DataInterface} to check the credentials
+    correctness.
+    \item \textbf{CKBHandler: } it handles all the functionalities offered by the system. It communicates with the \textbf{DataInterface} to retrieve and store data, with 
+    the \textbf{AuthCheckInterface} to check if a user is authorized to perform a certain operation and with the \textbf{MailInterface} to send notifications to the users.
+    It also communicates with the \textbf{GitHubInterface} to retrieve data (nickname and pushed code) from the GitHub platform.
+    \item \textbf{MailManager: } it handles the access to the mail server, it provides the \textbf{MailInterface} that allows components to send emails.
+    \item \textbf{DataManager: } it handles the access to the persistent data saved on the DB, almost every component communicates with it through the \textbf{DataInterface}.
+\end{itemize}
 
+
+\subsection{Auth component view}
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{images/component_view/Auth.png}
     \caption{Auth component view}
 \end{figure}
+The figure above shows the internal componenents of the AuthHandler.
+\begin{itemize}
+    \item \textbf{RequestHandler: } it handles the requests acting as a router dispatching requests to the right handler.
+    \item \textbf{EdHandler: } it is composed by the \textbf{EdLoginHandler} and the \textbf{EdRegHandler}. The former handles the login of educators, 
+    the latter handles their registration.
+    \item \textbf{SHandler: } it is composed by the \textbf{SLoginHandler} and the \textbf{SRegHandler}. The former handles the login of students,
+    the latter handles their registration.
+\end{itemize}
+LoginHandlers communicate with the \textbf{AuthCheckInterface} to check the authorization of a user.\\
+RegistrationHandlers communicate with the \textbf{MailInterface} to send confirmation emails and with the \textbf{DataInterface} to store the data of the new user.\\
+SRegistrationHandler also communicate with \textbf{GitHubAPI} to link the CKB account with the GitHub one.
 
 \section{Deployment view}
+
+
 \section{Runtime view}
 \section{Component interfaces}
 \section{Selected architetural styles and patterns}
