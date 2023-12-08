@@ -103,7 +103,38 @@ The deployment diagram offers a more detailed view over the hardware and softwar
     \item   \textbf{Database:} is used to store all the data of the system. It uses MySQL as DBMS to retrieve and store data.
     \item   \textbf{Mail Provider: }is used to send notifications to the users. It uses Gmail as mail provider.
 \end{itemize}
+
 \section{Runtime view}
+\subsection{Registration Student}
+The figure below shows the sequence diagram of the registration of a student. The student compiles the form with his email and password and submits it. 
+The database checks if the email is already used, if not the system sends a confirmation email to the student to complete the registration. 
+The student inserts his personal information (name, surname, date of birth) and also his GitHub nickname. 
+The system checks if the GitHub nickname is valid, if yes the system saves the student credentials and the registration is completed.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{images/seq_diagrams/RegistrationStd_DD.png}
+    \caption{Registration Student}
+\end{figure}
+
+\subsection{Registration Educator}
+The figure below shows the sequence diagram of the registration of an educator. The educator compiles the form with his email and password and submits it. 
+The database checks if the email is already used, if not the system sends a confirmation email to the educator to complete the registration. 
+The educator inserts his personal information (name, surname, date of birth) and the system saves the educator credentials and the registration is completed.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{images/seq_diagrams/RegistrationEd_DD.png}
+    \caption{Registration Educator}
+\end{figure}
+
+\subsection{Login}
+The figure below shows the sequence diagram of the user login. The user compiles the form with his email and password and submits it. 
+The system checks if the credentials are stored and valid, if yes the user is logged in, otherwise the system shows an error message.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{images/seq_diagrams/Login_DD.png}
+    \caption{Login}
+\end{figure}
 
 \subsection{Creation of the tournament}
 The figure below shows the sequence diagram of the creation of a tournament. The educator compiles the form
@@ -121,60 +152,64 @@ The figure below shows the sequence diagram of the creation of a battle. After t
  with the battle details and submits it. The system checks if the data are valid. The battle is created, so the system send an email to all 
  the submitted students.  
  
-    
 \begin{figure}[H]
     \centering
     \includegraphics[width=1\textwidth]{images/seq_diagrams/battle_creation_DD.png}
     \caption{Creation of the battle}
 \end{figure}
 
-\subsection{Execution of the battle}
-The figure below shows the sequence diagram of the execution of a battle. After GitHub notify the system that a student pushed code, the system
-evaluate automatically the code based on the requirements chose by the educator at the creation of the battle and
-updates the battle score of the student.
-
+\subsection{Joining a tournament}
 The figure below shows how a student can sign up for a tournament and receive an email notification about it.\\
 \begin{figure}[H]
     \centering
     \includegraphics[width=1\textwidth]{images/seq_diagrams/joining_tournament_DD.png}
-    \caption{Execution of the battle}
+    \caption{Joining a tournament}
 \end{figure}
 
+\subsection{Joining a battle as a singleton}
 The figure below shows a student joining a battle as a singleton and receiving an email notification about it.\\
 \begin{figure}[H]
     \centering
     \includegraphics[width=1\textwidth]{images/seq_diagrams/joining_battle_singleton_DD.png}
-    \caption{Execution of the battle}
+    \caption{Joining a battle as a singleton}
 \end{figure}
 
+\subsection{Joining a battle by creating a group}
 The figure below shows a student creating a group for a battle and receiving an email notification about it.\\
 \begin{figure}[H]
     \centering
     \includegraphics[width=1\textwidth]{images/seq_diagrams/joining_battle_create_group_DD.png}
-    \caption{Execution of the battle}
+    \caption{Joining a battle by creating a group}
 \end{figure}
 
+\subsection{Joining a battle by joining a group}
 The figure below shows a student joining a group for a battle and receiving an email notification about it. If the 
 minimum number of participants is reached, the team is signed up for the battle.\\
 \begin{figure}[H]
     \centering
     \includegraphics[width=1\textwidth]{images/seq_diagrams/joining_battle_join_group_DD.png}
-    \caption{Execution of the battle}
+    \caption{Joining a battle by joining a group}
 \end{figure}
 
+\subsection{Execution of the battle}
+The figure below shows the sequence diagram of the execution of a battle. After GitHub notify the system that a student pushed code, the system
+evaluate automatically the code based on the requirements chose by the educator at the creation of the battle and
+updates the battle score of the student.
+\subsection{Execution of the battle}
 \begin{figure}[H]
     \centering
     \includegraphics[width=1\textwidth]{images/seq_diagrams/battle_execution_DD.png}
     \caption{Execution of the battle}
 \end{figure}
 
+\subsection{Evaluation}
 The figure below shows evaluation process of a students' solution: first the CKBHandler asks the EvaluationTool to evaluate the 
 code according to the rules for automated evaluation, then, after the battle submission deadline expires and if required, the 
 educator can manually evaluate the code.\\
 \begin{figure}[H]
     \centering
     \includegraphics[width=1\textwidth]{images/seq_diagrams/evaluation_DD.png}
-    \caption{Execution of the battle}
+    \caption{Evaluation}
 \end{figure}
 
 \subsection{Conclusion of the battle}
@@ -187,7 +222,16 @@ to the tournament to notify them that the updated tournament rank is available.
     \caption{Conclusion of the battle}
 \end{figure}
 
+\subsection{Profile visualization}
+The figure below shows the sequence diagram of the visualization of the profile of a student. 
+The system retrieves the data of the seacrhed student from the database if the student is registered to the system, otherwise it sends an error message.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{images/seq_diagrams/ProfileVis_DD.png}
+    \caption{Profile visualization}
+\end{figure}
 
 \section{Component interfaces}
+In this section, the figure below depicts the class diagram with the component interfaces with their specific methods.
 \section{Selected architetural styles and patterns}
 \section{Other design decisions}
