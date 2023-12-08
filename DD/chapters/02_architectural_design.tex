@@ -124,7 +124,7 @@ The figure below shows the sequence diagram of the creation of a battle. After t
     
 \begin{figure}[H]
     \centering
-    \includegraphics[width=1\textwidth]{images/seq_diagrams/battle creation DD.png}
+    \includegraphics[width=1\textwidth]{images/seq_diagrams/battle_creation_DD.png}
     \caption{Creation of the battle}
 \end{figure}
 
@@ -133,9 +133,47 @@ The figure below shows the sequence diagram of the execution of a battle. After 
 evaluate automatically the code based on the requirements chose by the educator at the creation of the battle and
 updates the battle score of the student.
 
+The figure below shows how a student can sign up for a tournament and receive an email notification about it.\\
 \begin{figure}[H]
     \centering
-    \includegraphics[width=1\textwidth]{images/seq_diagrams/battle _execution_DD.png}
+    \includegraphics[width=1\textwidth]{images/seq_diagrams/joining_tournament_DD.png}
+    \caption{Execution of the battle}
+\end{figure}
+
+The figure below shows a student joining a battle as a singleton and receiving an email notification about it.\\
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{images/seq_diagrams/joining_battle_singleton_DD.png}
+    \caption{Execution of the battle}
+\end{figure}
+
+The figure below shows a student creating a group for a battle and receiving an email notification about it.\\
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{images/seq_diagrams/joining_battle_create_group_DD.png}
+    \caption{Execution of the battle}
+\end{figure}
+
+The figure below shows a student joining a group for a battle and receiving an email notification about it. If the 
+minimum number of participants is reached, the team is signed up for the battle.\\
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{images/seq_diagrams/joining_battle_join_group_DD.png}
+    \caption{Execution of the battle}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{images/seq_diagrams/battle_execution_DD.png}
+    \caption{Execution of the battle}
+\end{figure}
+
+The figure below shows evaluation process of a students' solution: first the CKBHandler asks the EvaluationTool to evaluate the 
+code according to the rules for automated evaluation, then, after the battle submission deadline expires and if required, the 
+educator can manually evaluate the code.\\
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{images/seq_diagrams/evaluation_DD.png}
     \caption{Execution of the battle}
 \end{figure}
 
