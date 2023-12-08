@@ -105,17 +105,33 @@ The deployment diagram offers a more detailed view over the hardware and softwar
 \end{itemize}
 \section{Runtime view}
 
-\begin{figure}[H]
+\subsection{Creation of the tournament}
+The figure below shows the sequence diagram of the creation of a tournament. The educator compiles the form
+ with the tournament details and submits it. The system checks if the data are valid, and if the badge option is set to true, the system creates the badge.
+ After that the system send an email to all the granted colleagues. The tournament is created and the educator is redirected to the tournament page.
+
+ \begin{figure}[H]
     \centering
     \includegraphics[width=1\textwidth]{images/seq_diagrams/tournament_creation_DD.png}
     \caption{Creation of the tournament}
 \end{figure}
 
+\subsection{Creation of the battle}
+The figure below shows the sequence diagram of the creation of a battle. After the educator clicked ok the "Create Battle" button, he compiles the form
+ with the battle details and submits it. The system checks if the data are valid. The battle is created, so the system send an email to all 
+ the submitted students.  
+ 
+    
 \begin{figure}[H]
     \centering
     \includegraphics[width=1\textwidth]{images/seq_diagrams/battle creation DD.png}
     \caption{Creation of the battle}
 \end{figure}
+
+\subsection{Execution of the battle}
+The figure below shows the sequence diagram of the execution of a battle. After GitHub notify the system that a student pushed code, the system
+evaluate automatically the code based on the requirements chose by the educator at the creation of the battle and
+updates the battle score of the student.
 
 \begin{figure}[H]
     \centering
@@ -123,6 +139,10 @@ The deployment diagram offers a more detailed view over the hardware and softwar
     \caption{Execution of the battle}
 \end{figure}
 
+\subsection{Conclusion of the battle}
+The figure below shows the sequence diagram of the conclusion of a battle. The system updates the tournament
+score of the students who participated to the battle and the tournament rank. The system send an email to all the students submitted
+to the tournament to notify them that the updated tournament rank is available.
 \begin{figure}[H]
     \centering
     \includegraphics[width=1\textwidth]{images/seq_diagrams/battle_conclusion_DD.png}
