@@ -1,1 +1,332 @@
 \chapter{Requirements Traceability}
+In this section, it is provided the mapping between the requirements defined in the RASD document and the components defined in the DD document.
+
+\begin{table}[H]
+    \begin{tabularx}{\textwidth}{X}
+        \toprule
+        \textbf{R1} The system must allow the user to register himself to the system by providing all the mandatory information. \\ \midrule
+        \textbf{UserApp}, \textbf{AuthHandler}, \textbf{RequestHandler}, \textbf{EdRegHandler} if the user is an educator, \textbf{SRegHandler} if the user is a student,
+        \textbf{DataManager}, \textbf{DatabaseServer} \\
+    \end{tabularx}
+\end{table}
+
+\begin{table}[H]
+    \begin{tabularx}{\textwidth}{X}
+        \toprule
+        \textbf{R2} The system must allow the students to link their GitHub account. \\ \midrule
+        \textbf{UserApp}, \textbf{AuthHandler}, \textbf{RequestHandler}, \textbf{SRegHandler}, \textbf{DataManager}, \textbf{DatabaseServer} \\                  
+    \end{tabularx}
+\end{table}
+
+\begin{table}[H]
+    \begin{tabularx}{\textwidth}{X}
+        \toprule
+        \textbf{R3} The system must verify the uniqueness of the email of the user to be registered. \\ \midrule
+        \textbf{AuthHandler}, \textbf{RequestHandler}, \textbf{EdRegHandler} if the user is an educator,\textbf{SRegHandler} if the user is a student, \textbf{DataManager},
+        \textbf{DatabaseServer} \\                   
+    \end{tabularx}
+\end{table}
+
+\begin{table}[H]
+    \begin{tabularx}{\textwidth}{X}
+        \toprule
+        \textbf{R4} The system must send a confirmation on the user's email after his registration. \\ \midrule
+        \textbf{AuthHandler}, \textbf{RequestHandler}, \textbf{EdRegHandler} if the user is an educator, \textbf{SRegHandler} if the user is a student,
+        \textbf{MailManager}, \textbf{MailServer}, \textbf{DataManager}, \textbf{DatabaseServer} \\                    
+    \end{tabularx}
+\end{table}
+
+\begin{table}[H]
+    \begin{tabularx}{\textwidth}{X}
+        \toprule
+        \textbf{R5} The system must allow the user to log into their account by entering their email and password. \\ \midrule
+        \textbf{UserApp}, \textbf{AuthHandler}, \textbf{RequestHandler}, \textbf{EdLoginHandler} if the user is an educator, \textbf{SLoginHandler} if the user is a student,
+        \textbf{DataManager}, \textbf{DatabaseServer} \\                  
+    \end{tabularx}
+\end{table}
+
+\begin{table}[H]
+    \begin{tabularx}{\textwidth}{X}
+        \toprule
+        \textbf{R6} The system must allow educators to create tournaments. \\ \midrule
+        \textbf{UserApp}, \textbf{CKBHandler}, \textbf{DataManager}, \textbf{DatabaseServer}                      \\
+    \end{tabularx}
+\end{table}
+
+\begin{table}[H]
+    \begin{tabularx}{\textwidth}{X}
+        \toprule
+        \textbf{R7} The system must allow the tournament creator to invite other educators. \\ \midrule
+        \textbf{UserApp}, \textbf{CKBHandler}, \textbf{MailManager}, \textbf{MailServer}                    \\
+    \end{tabularx}
+\end{table}
+
+\begin{table}[H]
+    \begin{tabularx}{\textwidth}{X}
+        \toprule
+        \textbf{R8} The systems must allow the tournament creator to end the tournament. \\ \midrule
+        \textbf{UserApp}, \textbf{CKBHandler}, \textbf{DataManager}, \textbf{DatabaseServer}                   \\
+    \end{tabularx}
+\end{table}
+
+\begin{table}[H]
+    \begin{tabularx}{\textwidth}{X}
+        \toprule
+        \textbf{R9} The system must allow the tournament creator to set the tournament configuration. \\ \midrule
+        \textbf{UserApp}, \textbf{CKBHandler}, \textbf{DataManager}, \textbf{DatabaseServer} \\
+    \end{tabularx}
+\end{table}
+
+\begin{table}[H]
+    \begin{tabularx}{\textwidth}{X}
+        \toprule
+        \textbf{R10} The system must allow the tournament creator to define badges. \\ \midrule
+        \textbf{UserApp}, \textbf{CKBHandler}, \textbf{DataManager}, \textbf{DatabaseServer}                    \\
+    \end{tabularx}
+\end{table}
+
+\begin{table}[H]
+    \begin{tabularx}{\textwidth}{X}
+        \toprule
+        \textbf{R11} The system must allow students to collect badges.  \\ \midrule
+        \textbf{CKBHandler}, \textbf{DataManager}, \textbf{DatabaseServer}                     \\
+    \end{tabularx}
+\end{table}
+
+\begin{table}[H]
+    \begin{tabularx}{\textwidth}{X}
+        \toprule
+        \textbf{R12} The system must assign badges to eligible students. \\ \midrule
+        \textbf{CKBHandler}, \textbf{MailManager}, \textbf{MailServer}, \textbf{DataManager}, \textbf{DatabaseServer}                     \\
+    \end{tabularx}
+\end{table}
+
+\begin{table}[H]
+    \begin{tabularx}{\textwidth}{X}
+        \toprule
+        \textbf{R13} The system must allow the tournament creator to define new rules regarding badges. \\ \midrule
+        \textbf{UserApp}, \textbf{CKBHandler}, \textbf{DataManager}, \textbf{DatabaseServer}                    \\
+    \end{tabularx}
+\end{table}
+
+\begin{table}[H]
+    \begin{tabularx}{\textwidth}{X}
+        \toprule
+        \textbf{R14} The system must allow the tournament creator to define new variables \\ regarding badges. \\ \midrule
+        \textbf{UserApp}, \textbf{CKBHandler}, \textbf{DataManager}, \textbf{DatabaseServer}                    \\
+    \end{tabularx}
+\end{table}
+
+\begin{table}[H]
+    \begin{tabularx}{\textwidth}{X}
+        \toprule
+        \textbf{R15} The system must notify via email educators when it is time to evaluate students' project. \\ \midrule
+        \textbf{CKBHandler}, \textbf{MailManager}, \textbf{MailServer}     \end{tabularx}
+\end{table}
+
+\begin{table}[H]
+    \begin{tabularx}{\textwidth}{X}
+        \toprule
+        \textbf{R16} The system must notify via email educators when they are invited to join a tournament. \\ \midrule
+        \textbf{CKBHandler}, \textbf{MailManager}, \textbf{MailServer} \\
+    \end{tabularx}
+\end{table}
+
+\begin{table}[H]
+    \begin{tabularx}{\textwidth}{X}
+        \toprule
+        \textbf{R17} The system must allow authorized educators to create battles. \\ \midrule
+        \textbf{UserApp}, \textbf{CKBHandler}                   \\
+    \end{tabularx}
+\end{table}
+
+\begin{table}[H]
+    \begin{tabularx}{\textwidth}{X}
+        \toprule
+        \textbf{R18} The system must allow the battle creator to upload the code kata. \\ \midrule
+        \textbf{UserApp}, \textbf{CKBHandler}, \textbf{DataManager}, \textbf{DatabaseServer}                    \\
+    \end{tabularx}
+\end{table}
+
+\begin{table}[H]
+    \begin{tabularx}{\textwidth}{X}
+        \toprule
+        \textbf{R19} The system must allow the battle creator to set the battle configuration. \\ \midrule
+        \textbf{UserApp}, \textbf{CKBHandler}, \textbf{DataManager}, \textbf{DatabaseServer}                    \\
+    \end{tabularx}
+\end{table}
+
+\begin{table}[H]
+    \begin{tabularx}{\textwidth}{X}
+        \toprule
+        \textbf{R20} The system must allow the educator to manually evaluate the students' project. \\ \midrule
+        \textbf{UserApp}, \textbf{CKBHandler}, \textbf{DataManager}, \textbf{DatabaseServer} \\
+        \end{tabularx}
+\end{table}
+
+\begin{table}[H]
+    \begin{tabularx}{\textwidth}{X}
+        \toprule
+        \textbf{R21} The system must send the link to the repository to all students subscribed to the battle.\\ \midrule
+        \textbf{CKBHandler}, \textbf{MailManager}, \textbf{MailServer}, \textbf{DataManager}, \textbf{DatabaseServer} \\
+    \end{tabularx}
+\end{table}
+
+\begin{table}[H]
+    \begin{tabularx}{\textwidth}{X}
+        \toprule
+        \textbf{R22} The system must create the GitHub repository containing the code kata. \\ \midrule
+        \textbf{CKBHandler}                   \\
+    \end{tabularx}
+\end{table}
+
+\begin{table}[H]
+    \begin{tabularx}{\textwidth}{X}
+        \toprule
+        \textbf{R23} The system must notify via email students when a new tournament is created. \\ \midrule
+        \textbf{CKBHandler}, \textbf{MailManager}, \textbf{MailServer} \\
+    \end{tabularx}
+\end{table}
+
+\begin{table}[H]
+    \begin{tabularx}{\textwidth}{X}
+        \toprule
+        \textbf{R24} The system must allow students to subscribe to a tournament. \\ \midrule
+        \textbf{UserApp}, \textbf{CKBHandler}, \textbf{DataManager}, \textbf{DatabaseServer} \\
+        \end{tabularx}
+\end{table}
+
+\begin{table}[H]
+    \begin{tabularx}{\textwidth}{X}
+        \toprule
+        \textbf{R25} The system must notify via email students when a new battle is created within the context of a tournament they signed-up to. \\ \midrule
+        \textbf{CKBHandler}, \textbf{MailManager}, \textbf{MailServer} \\    \end{tabularx}
+\end{table}
+
+\begin{table}[H]
+    \begin{tabularx}{\textwidth}{X}
+        \toprule
+        \textbf{R26} The system must allow students to subscribe to a battle within the context of a tournament they signed-up to. \\ \midrule
+        \textbf{UserApp}, \textbf{CKBHandler}, \textbf{DataManager}, \textbf{DatabaseServer}                    \\
+    \end{tabularx}
+\end{table}
+
+\begin{table}[H]
+    \begin{tabularx}{\textwidth}{X}
+        \toprule
+        \textbf{R27} The system must allow students to invite other students to a battle. \\ \midrule
+        \textbf{UserApp}, \textbf{CKBHandler}                     \\
+    \end{tabularx}
+\end{table}
+
+\begin{table}[H]
+    \begin{tabularx}{\textwidth}{X}
+        \toprule
+        \textbf{R28} The system must notify via email students when they are invited to join a battle by another student. \\ \midrule
+        \textbf{CKBHandler}, \textbf{MailManager}, \textbf{MailServer} \\    
+    \end{tabularx}
+\end{table}
+
+\begin{table}[H]
+    \begin{tabularx}{\textwidth}{X}
+        \toprule
+        \textbf{R29} The system must notify via email students when the final battle rank becomes available. \\ \midrule
+        \textbf{CKBHandler}, \textbf{MailManager}, \textbf{MailServer} \\    
+    \end{tabularx}
+\end{table}
+
+\begin{table}[H]
+    \begin{tabularx}{\textwidth}{X}
+        \toprule
+        \textbf{R30} The system must notify via email students when the final tournament rank becomes available. \\ \midrule
+        \textbf{CKBHandler}, \textbf{MailManager}, \textbf{MailServer} \\    
+    \end{tabularx}
+\end{table}
+
+\begin{table}[H]
+    \begin{tabularx}{\textwidth}{X}
+        \toprule
+        \textbf{R31} The system must pull the latest submitted sources before the submission deadline expired. \\ \midrule
+        \textbf{CKBHandler}                    \\
+    \end{tabularx}
+\end{table}
+
+\begin{table}[H]
+    \begin{tabularx}{\textwidth}{X}
+        \toprule
+        \textbf{R32} The system must analyze the students' projects. \\ \midrule
+        \textbf{CKBHandler}, \textbf{EvaluationTool}  \\
+    \end{tabularx}
+\end{table}
+
+\begin{table}[H]
+    \begin{tabularx}{\textwidth}{X}
+        \toprule
+        \textbf{R33} The system must run the students' projects. \\ \midrule
+        \textbf{CKBHandler}, \textbf{EvaluationTool}                     \\  
+    \end{tabularx}
+\end{table}
+
+\begin{table}[H]
+    \begin{tabularx}{\textwidth}{X}
+        \toprule
+        \textbf{R34} The system must evaluate the students' projects. \\ \midrule
+        \textbf{CKBHandler}, \textbf{EvaluationTool}                     \\
+    \end{tabularx}
+\end{table}
+
+\begin{table}[H]
+    \begin{tabularx}{\textwidth}{X}
+        \toprule
+        \textbf{R35} The system must update the battle scores of the teams. \\ \midrule
+        \textbf{CKBHandler}, \textbf{DataManager}, \textbf{DatabaseServer}                     \\
+    \end{tabularx}
+\end{table}
+
+\begin{table}[H]
+    \begin{tabularx}{\textwidth}{X}
+        \toprule
+        \textbf{R36} The system must compute the battle rank. \\ \midrule
+        \textbf{CKBHandler}, \textbf{DataManager}, \textbf{DatabaseServer}                     \\
+    \end{tabularx}
+\end{table}
+
+\begin{table}[H]
+    \begin{tabularx}{\textwidth}{X}
+        \toprule
+        \textbf{R37} The system must update the students' personal tournament scores.  \\ \midrule
+        \textbf{CKBHandler}, \textbf{DataManager}, \textbf{DatabaseServer}                     \\
+    \end{tabularx}
+\end{table}
+
+\begin{table}[H]
+    \begin{tabularx}{\textwidth}{X}
+        \toprule
+        \textbf{R38} The system must compute the tournament rank. \\ \midrule
+        \textbf{CKBHandler}, \textbf{DataManager}, \textbf{DatabaseServer}                  \\
+    \end{tabularx}
+\end{table}
+
+\begin{table}[H]
+    \begin{tabularx}{\textwidth}{X}
+        \toprule
+        \textbf{R39} The system must allow users to visualize ongoing tournaments. \\ \midrule
+        \textbf{UserApp}, \textbf{CKBHandler}, \textbf{DataManager}, \textbf{DatabaseServer}                    \\
+    \end{tabularx}
+\end{table}
+
+\begin{table}[H]
+    \begin{tabularx}{\textwidth}{X}
+        \toprule
+        \textbf{R40} The system must allow users to visualize ongoing tournament ranks. \\ \midrule
+        \textbf{UserApp}, \textbf{CKBHandler}, \textbf{DataManager}, \textbf{DatabaseServer}                      \\
+    \end{tabularx}
+\end{table}
+
+\begin{table}[H]
+    \begin{tabularx}{\textwidth}{X}
+        \toprule
+        \textbf{R41} The system must allow users to visualize students' profiles.  \\ \midrule
+        \textbf{UserApp}, \textbf{CKBHandler}, \textbf{DataManager}, \textbf{DatabaseServer}                    \\
+    \end{tabularx}
+\end{table}
