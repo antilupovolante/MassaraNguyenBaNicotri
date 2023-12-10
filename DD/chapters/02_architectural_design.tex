@@ -107,7 +107,7 @@ The deployment diagram offers a more detailed view over the hardware and softwar
 
 \section{Runtime view}
 \subsection{Registration Student}
-The figure below shows the sequence diagram of the registration of a student. The student compiles the form with his email and password and submits it. 
+The figure below shows the sequence diagram of the registration of a student. The student fills the form with his email and password and submits it. 
 The database checks if the email is already used, if not the system sends a confirmation email to the student to complete the registration. 
 The student inserts his personal information (name, surname, date of birth) and also his GitHub nickname. 
 The system checks if the GitHub nickname is valid, if yes the system saves the student credentials and the registration is completed.
@@ -119,7 +119,7 @@ The system checks if the GitHub nickname is valid, if yes the system saves the s
 \end{figure}
 
 \subsection{Registration Educator}
-The figure below shows the sequence diagram of the registration of an educator. The educator compiles the form with his email and password and submits it. 
+The figure below shows the sequence diagram of the registration of an educator. The educator fills the form with his email and password and submits it. 
 The database checks if the email is already used, if not the system sends a confirmation email to the educator to complete the registration. 
 The educator inserts his personal information (name, surname, date of birth) and the system saves the educator credentials and the registration is completed.
 \begin{figure}[H]
@@ -129,7 +129,7 @@ The educator inserts his personal information (name, surname, date of birth) and
 \end{figure}
 
 \subsection{Login}
-The figure below shows the sequence diagram of the user login. The user compiles the form with his email and password and submits it. 
+The figure below shows the sequence diagram of the user login. The user fills the form with his email and password and submits it. 
 The system checks if the credentials are stored and valid, if yes the user is logged in, otherwise the system shows an error message.
 \begin{figure}[H]
     \centering
@@ -138,9 +138,9 @@ The system checks if the credentials are stored and valid, if yes the user is lo
 \end{figure}
 
 \subsection{Creation of the tournament}
-The figure below shows the sequence diagram of the creation of a tournament. The educator compiles the form
+The figure below shows the sequence diagram of the creation of a tournament. The educator fills the form
  with the tournament details and submits it. The system checks if the data are valid, and if the badge option is set to true, the system creates the badge.
- After that the system send an email to all the granted colleagues. The tournament is created and the educator is redirected to the tournament page.
+ After that the system sends an email to all the granted colleagues. The tournament is created and the educator is redirected to the tournament page.
 
  \begin{figure}[H]
     \centering
@@ -150,7 +150,7 @@ The figure below shows the sequence diagram of the creation of a tournament. The
 
 \subsection{Creation of the battle}
 The figure below shows the sequence diagram of the creation of a battle. After the educator clicked ok the "Create Battle" button, he compiles the form
- with the battle details and submits it. The system checks if the data are valid. The battle is created, so the system send an email to all 
+ with the battle details and submits it. The system checks if the data are valid. The battle is created, so the system sends an email to all 
  the submitted students.  
  
 \begin{figure}[H]
@@ -202,8 +202,8 @@ minimum number of participants is reached, the team is signed up for the battle.
 \end{figure}
 
 \subsection{Execution of the battle}
-The figure below shows the sequence diagram of the execution of a battle. After GitHub notify the system that a student pushed code, the system
-evaluate automatically the code based on the requirements chose by the educator at the creation of the battle and
+The figure below shows the sequence diagram of the execution of a battle. After GitHub notifies the system that a student pushed code, the system
+evaluates automatically the code based on the requirements chosen by the educator at the creation of the battle and
 updates the battle score of the student.
 \begin{figure}[H]
     \centering
@@ -223,7 +223,7 @@ educator can manually evaluate the code.\\
 
 \subsection{Conclusion of the battle}
 The figure below shows the sequence diagram of the conclusion of a battle. The system updates the tournament
-score of the students who participated to the battle and the tournament rank. The system send an email to all the students submitted
+score of the students who participated to the battle and the tournament rank. The system sends an email to all the students submitted
 to the tournament to notify them that the updated tournament rank is available.
 \begin{figure}[H]
     \centering
@@ -242,7 +242,7 @@ awards badges to students and sends an email notification to all suscribed stude
 
 \subsection{Profile visualization}
 The figure below shows the sequence diagram of the visualization of the profile of a student. 
-The system retrieves the data of the seacrhed student from the database if the student is registered to the system, otherwise it sends an error message.
+The system retrieves the data of the searched student from the database if the student is registered to the system, otherwise it sends an error message.
 \begin{figure}[H]
     \centering
     \includegraphics[width=1\textwidth]{images/seq_diagrams/ProfileVis_DD.png}
