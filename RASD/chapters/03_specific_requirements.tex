@@ -594,7 +594,7 @@ In case of exception the system will notify user with a human-readable message.
     R10 \label{R.10}& The system must allow the tournament creator to define badges. \\ \hline
     R11 \label{R.11}& The system must allow students to collect badges. \\ \hline
     R12 \label{R.12}& The system must assign badges to eligible students. \\ \hline
-    R13 \label{R.13}& The system must notify via email students when a tournament they subscribed to ends. \\ \hline
+    R13 \label{R.13}& \begin{tabular}[c]{@{}l@{}} The system must notify via email students when a tournament \\ they subscribed to ends. \end{tabular} \\ \hline
     R14 \label{R.14}& The system must notify via email students when they are awarded a badge. \\ \hline
     R15 \label{R.15}& \begin{tabular}[c]{@{}l@{}} The system must notify via email educators when it is time to evaluate \\ students' project. \end{tabular} \\ \hline
     R16 \label{R.16}& \begin{tabular}[c]{@{}l@{}} The system must notify via email educators when they are invited to join \\  a tournament. \end{tabular} \\ \hline
@@ -623,9 +623,9 @@ In case of exception the system will notify user with a human-readable message.
     R39 \label{R.39}& The system must allow users to visualize ongoing tournaments. \\ \hline
     R40 \label{R.40}& The system must allow users to visualize ongoing tournament ranks. \\ \hline
     R41 \label{R.41}& The system must allow users to visualize students' profiles. \\ \hline
-    R42 \label{R.42}& The system must notify via email students when their work has been manually evaluated. \\ \hline
+    R42 \label{R.42}& \begin{tabular}[c]{@{}l@{}} The system must notify via email students when their work has \\ been manually evaluated.\end{tabular} \\ \hline
     R43 \label{R.43}& The system must notify via email students when they join a tournament. \\ \hline
-    \end{longtable}
+\end{longtable}
 
 \subsection{Mapping on requirements}
 \begin{table}[H]
@@ -655,15 +655,15 @@ In case of exception the system will notify user with a human-readable message.
         \textbf{R28} The system must notify via email students when they are invited to join \\ a battle by another student        \\ 
         \textbf{R29} The system must notify via email students when the final battle rank becomes available.       \\ 
         \textbf{R30} The system must notify via email students when the final tournament rank becomes available     \\ 
-        \textbf{R31} The system must pull the latest submitted sources before the submission deadline expired     \\ 
-        \textbf{R35} The system must update the battle scores of the teams       \\ 
-        \textbf{R43} The system must notify via email students when they join a tournament. \\ 
-
+        
     \end{tabularx}
 \end{table}
 
 \begin{table}[H]
     \begin{tabularx}{\textwidth}{X}
+        \textbf{R31} The system must pull the latest submitted sources before the submission deadline expired     \\  
+        \textbf{R35} The system must update the battle scores of the teams       \\ 
+        \textbf{R43} The system must notify via email students when they join a tournament. \\
         \textbf{R36} The system must compute the battle rank     \\  
         \textbf{R37} The system must update the students' personal tournament scores         \\ 
         \textbf{R38} The system must compute the tournament rank         \\
