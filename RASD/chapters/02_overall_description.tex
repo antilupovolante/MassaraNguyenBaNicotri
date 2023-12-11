@@ -63,11 +63,26 @@ scenariosand diagrams illustrating further details about shared phenomenas.\\
 \end{enumerate}
 
 \subsection{Class diagrams}
-The UML class diagram below represents a conceptual, high-level model of the software to be. 
-At this level, it not include any references to methods and other low-level details, those will be detailed during the design phase. \\
+The UML class diagram below represents a conceptual, high-level model of the system to be. 
+At this level, it does not include any references to methods and other low-level details, those will be detailed during the design phase. \\
+
+\begin{figure}[H]
+      \centering
+      \includegraphics[width=1\textwidth]{images/Class_Diagram.png}
+      \caption{Class diagram}
+\end{figure}
+
 The main entities in the diagram are:
 \begin{itemize}
-    \item \textbf{User:} represents a user of the system.
+    \item \textbf{User:} represents an user of the system who can access to the platform with his credentials.
+    \item \textbf{Student:} represents a student, a particular type of user who can join tournaments and battles.
+    \item \textbf{Educator:} represents an educator, a particular type of user who can create tournaments, battles and badges.
+    \item \textbf{Tournament:} represents a tournament, a programming competition composed of various battles created by an educator.
+    \item \textbf{Battle:} represents a battle with a specific code kata created by an educator, in which teams of students can compete.
+    \item \textbf{Team: } represents a group of students who can compete in a battle.
+    \item \textbf{Badge: } represents an award that educator can create for a tournament and assign to eligible students.
+    \item \textbf{CokeKata: } represents a programming exercise in a programming language chosen by its creator. 
+    It includes automation scripts and test cases.
 \end{itemize}
 
 \subsection{State diagrams}
