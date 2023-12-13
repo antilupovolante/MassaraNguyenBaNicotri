@@ -10,7 +10,7 @@ CodeKataBattle aims to assist students in enhancing their programming skills by 
  and use cases to specify what the system must do and how it should interact with the stakeholders.\\  
 
  \subsection{Goals}
- In the following table we describe the main goals that our system wants to achive.\\
+ In the following table we describe the main goals that our system wants to achieve.\\
  \begin{table}[H]
     \centering
     \resizebox{0.8\textwidth}{!}{%
@@ -18,28 +18,29 @@ CodeKataBattle aims to assist students in enhancing their programming skills by 
     \hline
     \rowcolor[HTML]{b8c8d5}
     \multicolumn{1}{|c|}{\cellcolor[HTML]{b8c8d5}\textbf{Goal}} & \multicolumn{1}{c|}{\cellcolor[HTML]{b8c8d5}\textbf{Description}} \\ \hline
-    G.1 \label{G.1}& \begin{tabular}[c]{@{}l@{}} Allow students to compete in a tournament \end{tabular}  \\ \hline
+    G.1 \label{G.1}& \begin{tabular}[c]{@{}l@{}} Allow students to compete in a tournament. \end{tabular}  \\ \hline
     G.2 \label{G.2}& Allow educators to create challenges for students. \\ \hline
     G.3 \label{G.3}& Allow educators to grade students' projects. \\ \hline
-    G.4 \label{G.4}& Allow students to collect badges. \\ \hline
+    G.4 \label{G.4}& Allow students to collect badges in a tournament proving their skills. \\ \hline
     \end{tabular}
     }
     \end{table}
-    \clearpage
-\section{Scope}
-The main actors of the system are students and educators. Educators can:
+
+    \section{Scope}
+The main actors of the system are students and educators. \\
+Educators can:
 \begin{itemize}
     \item \textbf{Create a tournament:} decide which colleagues can create battles within the tournament and define badges 
     that represent the achievements of individual students; 
     \item \textbf{Create a battle:} set configurations and rules for that battle;
-    \item \textbf{Evaluate:} manually assign a personal score to the students' works.
+    \item \textbf{Evaluate projects:} manually assign a personal score to the students' works.
 \end{itemize}
 
 Students can:
 \begin{itemize}
     \item \textbf{Join a tournament};
-    \item \textbf{Partecipate in a battle:} create a team and complete the project with his code;
-    \item \textbf{Collect badges} based on the rules of the tournament and his performance.
+    \item \textbf{Participate in a battle:} create a team and complete the project with his code;
+    \item \textbf{Collect badges: } based on the rules of the tournament and his performance.
 \end{itemize}
 
 \subsection{World Phenomena}
@@ -59,7 +60,6 @@ Students can:
     \end{tabular}
     }
     \end{table}
-    \clearpage
 
 \subsection{Shared Phenomena}
 
@@ -86,7 +86,9 @@ Students can:
     SP.14 \label{SP.14}&  The system shows the list of ongoing tournaments. & Machine  \\ \hline
     SP.15 \label{SP.15}&  The system shows the student's badges. & Machine  \\ \hline
     SP.16 \label{SP.16}&  The educator defines the badges of a tournament. & World  \\ \hline
-    SP.17 \label{SP.17}&  All users can visualize the profile of a user. & World  \\ \hline
+    SP.17 \label{SP.17}&  All users can visualize the profile of a student. & World  \\ \hline
+    SP.18 \label{SP.18}&  The educator evaluates the students' works. & World  \\ \hline
+    SP.19 \label{SP.19}&  The system shows the tournament score of the students. & Machine  \\ \hline
     \end{tabular}
     }
     \end{table}
@@ -108,7 +110,7 @@ Students can:
         composed by a set of rules and possible badges. \end{tabular}  \\ \hline
     Battle & \begin{tabular}[c]{@{}l@{}}A battle is a competition between teams. It is created by an educator \\
         and it is composed by a set of rules. \end{tabular}  \\ \hline
-    Team & \begin{tabular}[c]{@{}l@{}}A team is a group of students that compete in a battle. \end{tabular}  \\ \hline
+    Team & \begin{tabular}[c]{@{}l@{}}A team is a group of students competing in a battle. \end{tabular}  \\ \hline
     Badge & \begin{tabular}[c]{@{}l@{}}A badge is a reward that a student can obtain by participating in a \\
         tournament. \end{tabular}  \\ \hline
     \end{tabular}
@@ -139,16 +141,13 @@ Students can:
     G  & Goal             \\ \hline
     R  & Requirement             \\ \hline
     UC  & Use Case             \\ \hline
-    NFR  & Non Functional Requirement             \\ \hline
     D  & Domain Assumption             \\ \hline
-    w.r.t. & with reference to \\ \hline
-    e.g. & exempli gratia \\ \hline
     i.e. & id est \\ \hline
     etc. & etcetera \\ \hline
     \end{tabular}
 \end{table}
 
-\section{Revision History}
+%\section{Revision History}
 
 \section{Reference Documents}
 \begin{itemize}
@@ -156,8 +155,9 @@ Students can:
     \item RASD assignment document.
 \end{itemize}
 
+\clearpage
 \section{Document Structure}
-The structure of this RASD document is the following:
+The structure of this RASD is the following:
 \begin{enumerate}   
     \item \textbf{Introduction}: In this chapter the purpose of this document is presented highlighting in particular the main goals, 
     the audience which is referred to, the identification of the product and application domain  describing world and shared phenomena and, 
