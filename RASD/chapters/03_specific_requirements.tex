@@ -573,6 +573,45 @@ In case of exception the system will notify user with a human-readable message.
 \end{figure}
 \clearpage
 
+\subsection{Activity diagrams}
+Activity diagrams are used to model the workflow of a process, the operation that are need to perform a task.
+They showcase the sequence and dependencies of various tasks, actions and processes within a system.\\
+
+\textbf{Registration}\\
+In the following figure the process of registration for both students and educators is shown. 
+The user has to insert his email, choose  password and specify if he is a student or an educator.\\
+If the email is incorrect, the system repeats the operations. Otherwise, the system asks for personal information,
+ sends a verification code and checks it.\\If everything goes well, the system creates the new account.
+\begin{figure} [H]
+  \centering
+  \includegraphics[width=0.80\textwidth]{images/activity_diagrams/Registration.png}
+  \caption{Registration state chart}
+\end{figure} \vspace{1cm}
+
+\textbf{Login}\\
+In the following figure the process of login for both students and educators is shown. 
+The user has to insert his email and the password associated to his account.
+\\If the credentials are incorrect, the system repeats the operations. Otherwise the user visualizes the homepage.
+\begin{figure} [H]
+  \centering
+  \includegraphics[width=0.7\textwidth]{images/activity_diagrams/Login.png}
+  \caption{Login state chart}
+\end{figure} \vspace{1cm}
+
+\clearpage
+\textbf{Tournament evolution}\\
+In the following figure the evolution of a tournament is shown. If the user is a student, he can only join
+the tournament, choose which battle he wants to attempt and invite friends.\\ If the user is an educator, he
+can create a tournament or only create the battles (if he has the permission). He can also evaluate 
+the student if the settings of the tournament allow it.
+\begin{figure} [H]
+  \centering
+  \includegraphics[width=0.815\textwidth]{images/activity_diagrams/Tournament_evolution.png}
+  \caption{Tournament evolution state chart}
+\end{figure} \vspace{1cm}
+
+\clearpage
+
 \subsection{List of functional requirements}
 \begin{longtable}{|c|l|}
     \hline
