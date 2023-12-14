@@ -74,6 +74,29 @@ LoginHandlers communicate with the \textbf{AuthCheckInterface} to check the auth
 RegistrationHandlers communicate with the \textbf{MailInterface} to send confirmation emails and with the \textbf{DataInterface} to store the data of the new user.\\
 SRegistrationHandler also communicate with \textbf{GitHubAPI} to link the CKB account with the GitHub one.
 
+\subsection{CKB component view}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{images/component_view/ckb_handler.png}
+    \caption{CKB component view}
+\end{figure}
+The figure above shows the internal components of the CKBHandler.
+\begin{itemize}
+    \item \textbf{RequestHandler: } it handles the requests acting as a router dispatching requests to the right handler.
+    \item \textbf{EdCKBHandler: } it is composed by the \textbf{EdTournamentHandler}, the \textbf{EdBattleHandler} and the \textbf{EvaluationHandler}.
+    EdTournamentHandler is responsible for the creation and the conclusion of tournaments, EdBattleHandler is responsible for the creation of battles, and 
+    EvaluationHandler is responsible for the evaluation of the students' code.
+    \item \textbf{SCKBHandler: } it is composed by the \textbf{STournamentHandler} and the \textbf{SBattleHandler}. STournamentHandler is responsible for the 
+    visualization and the subscription to tournaments, SBattleHandler is responsible for the subscription to battles.
+    \item \textbf{ProfileHandler: } it is responsible for the visualization of the profile of a student. 
+\end{itemize}
+All components communicate with the \textbf{AuthCheckInterface} to check the authorization of a user to perform the requested operation.\\
+TournamentHandlers and BattleHandlers communicate with the \textbf{DataInterface} to retrieve and store data and with the \textbf{MailInterface} to send notifications to the users.\\
+EdBattleHandler also communicates with the \textbf{GitHubAPI} to retrieve the students' pushed code.\\
+EvaluationHandler communicates with the \textbf{EvaluationInterface} to evaluate the students' code and with the \textbf{DataInterface} to store the results of the evaluation.\\
+ProfileHandler communicates with the \textbf{DataInterface} to retrieve the data of the searched student.
+
+
 \section{Deployment view}
 The figure below shows the architecture of the system. All the users access to the WebApp through the browser, which communicate with
 the Web Server. Both Web Server and Application Server are hosted on a Cloud Provider. This choice offers many
@@ -110,7 +133,7 @@ The deployment diagram offers a more detailed view over the hardware and softwar
 The figure below shows the sequence diagram of the registration of a student. The student fills the form with his email and password and submits it. 
 The database checks if the email is already used, if not the system sends a confirmation email to the student to complete the registration. 
 The student inserts his personal information (name, surname, date of birth) and also his GitHub nickname. 
-The system checks if the GitHub nickname is valid, if yes the system saves the student credentials and the registration is completed.
+The system checks if the GitHub nickname is valid, if so the system saves the student credentials and the registration is completed.
 
 \begin{figure}[H]
     \centering
