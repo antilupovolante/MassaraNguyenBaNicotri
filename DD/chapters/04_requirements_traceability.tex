@@ -49,7 +49,7 @@ In this section, it is provided the mapping between the requirements defined in 
     \begin{tabularx}{\textwidth}{X}
         \toprule
         \textbf{R6} The system must allow educators to create tournaments. \\ \midrule
-        \textbf{UserApp}, \textbf{CKBHandler}, \textbf{DataManager}, \textbf{DatabaseServer}                      \\
+        \textbf{UserApp}, \textbf{CKBHandler}, \textbf{CKBRequestHandler}, \textbf{EdTournamentHandler}, \textbf{DataManager}, \textbf{DatabaseServer}                      \\
     \end{tabularx}
 \end{table}
 
@@ -57,7 +57,7 @@ In this section, it is provided the mapping between the requirements defined in 
     \begin{tabularx}{\textwidth}{X}
         \toprule
         \textbf{R7} The system must allow the tournament creator to invite other educators. \\ \midrule
-        \textbf{UserApp}, \textbf{CKBHandler}, \textbf{MailManager}, \textbf{MailServer}                    \\
+        \textbf{UserApp}, \textbf{CKBHandler}, \textbf{CKBRequestHandler}, \textbf{EdTournamentHandler}                    \\
     \end{tabularx}
 \end{table}
 
@@ -65,7 +65,7 @@ In this section, it is provided the mapping between the requirements defined in 
     \begin{tabularx}{\textwidth}{X}
         \toprule
         \textbf{R8} The systems must allow the tournament creator to end the tournament. \\ \midrule
-        \textbf{UserApp}, \textbf{CKBHandler}, \textbf{DataManager}, \textbf{DatabaseServer}                   \\
+        \textbf{UserApp}, \textbf{CKBHandler}, \textbf{CKBRequestHandler}, \textbf{EdTournamentHandler}, \textbf{DataManager}, \textbf{DatabaseServer}                   \\
     \end{tabularx}
 \end{table}
 
@@ -73,7 +73,7 @@ In this section, it is provided the mapping between the requirements defined in 
     \begin{tabularx}{\textwidth}{X}
         \toprule
         \textbf{R9} The system must allow the tournament creator to set the tournament configuration. \\ \midrule
-        \textbf{UserApp}, \textbf{CKBHandler}, \textbf{DataManager}, \textbf{DatabaseServer} \\
+        \textbf{UserApp}, \textbf{CKBHandler}, \textbf{CKBRequestHandler}, \textbf{EdTournamentHandler}, \textbf{DataManager}, \textbf{DatabaseServer} \\
     \end{tabularx}
 \end{table}
 
@@ -81,7 +81,7 @@ In this section, it is provided the mapping between the requirements defined in 
     \begin{tabularx}{\textwidth}{X}
         \toprule
         \textbf{R10} The system must allow the tournament creator to define badges. \\ \midrule
-        \textbf{UserApp}, \textbf{CKBHandler}, \textbf{DataManager}, \textbf{DatabaseServer}                    \\
+        \textbf{UserApp}, \textbf{CKBHandler}, \textbf{CKBRequestHandler}, \textbf{EdTournamentHandler}, \textbf{DataManager}, \textbf{DatabaseServer}                    \\
     \end{tabularx}
 \end{table}
 
@@ -97,7 +97,7 @@ In this section, it is provided the mapping between the requirements defined in 
     \begin{tabularx}{\textwidth}{X}
         \toprule
         \textbf{R12} The system must assign badges to eligible students. \\ \midrule
-        \textbf{CKBHandler}, \textbf{MailManager}, \textbf{MailServer}, \textbf{DataManager}, \textbf{DatabaseServer}                     \\
+        \textbf{CKBHandler}, \textbf{DataManager}, \textbf{DatabaseServer}                     \\
     \end{tabularx}
 \end{table}
 
@@ -113,7 +113,7 @@ In this section, it is provided the mapping between the requirements defined in 
     \begin{tabularx}{\textwidth}{X}
         \toprule
         \textbf{R14} The system must notify via email students when they are awarded a badge. \\ \midrule
-        \textbf{CKBHandler}, \textbf{MailManager}, \textbf{MailServer}             \\
+        \textbf{CKBHandler}, \textbf{MailManager}, \textbf{MailServer}              \\
     \end{tabularx}
 \end{table}
 
@@ -121,7 +121,8 @@ In this section, it is provided the mapping between the requirements defined in 
     \begin{tabularx}{\textwidth}{X}
         \toprule
         \textbf{R15} The system must notify via email educators when it is time to evaluate students' project. \\ \midrule
-        \textbf{CKBHandler}, \textbf{MailManager}, \textbf{MailServer}     \end{tabularx}
+        \textbf{CKBHandler}, \textbf{MailManager}, \textbf{MailServer}     
+    \end{tabularx}
 \end{table}
 
 \begin{table}[H]
@@ -136,7 +137,7 @@ In this section, it is provided the mapping between the requirements defined in 
     \begin{tabularx}{\textwidth}{X}
         \toprule
         \textbf{R17} The system must allow authorized educators to create battles. \\ \midrule
-        \textbf{UserApp}, \textbf{CKBHandler}                   \\
+        \textbf{UserApp}, \textbf{CKBHandler}, \textbf{CKBRequestHandler}, \textbf{EdBattleHandler}, \textbf{DataManager}, \textbf{DatabaseServer}                   \\
     \end{tabularx}
 \end{table}
 
@@ -144,7 +145,7 @@ In this section, it is provided the mapping between the requirements defined in 
     \begin{tabularx}{\textwidth}{X}
         \toprule
         \textbf{R18} The system must allow the battle creator to upload the code kata. \\ \midrule
-        \textbf{UserApp}, \textbf{CKBHandler}, \textbf{DataManager}, \textbf{DatabaseServer}                    \\
+        \textbf{UserApp}, \textbf{CKBHandler}, \textbf{CKBRequestHandler}, \textbf{EdBattleHandler}, \textbf{DataManager}, \textbf{DatabaseServer}                    \\
     \end{tabularx}
 \end{table}
 
@@ -152,7 +153,7 @@ In this section, it is provided the mapping between the requirements defined in 
     \begin{tabularx}{\textwidth}{X}
         \toprule
         \textbf{R19} The system must allow the battle creator to set the battle configuration. \\ \midrule
-        \textbf{UserApp}, \textbf{CKBHandler}, \textbf{DataManager}, \textbf{DatabaseServer}                    \\
+        \textbf{UserApp}, \textbf{CKBHandler}, \textbf{CKBRequestHandler}, \textbf{EdBattleHandler}, \textbf{DataManager}, \textbf{DatabaseServer}                    \\
     \end{tabularx}
 \end{table}
 
@@ -160,7 +161,7 @@ In this section, it is provided the mapping between the requirements defined in 
     \begin{tabularx}{\textwidth}{X}
         \toprule
         \textbf{R20} The system must allow the educator to manually evaluate the students' project. \\ \midrule
-        \textbf{UserApp}, \textbf{CKBHandler}, \textbf{DataManager}, \textbf{DatabaseServer} \\
+        \textbf{UserApp}, \textbf{CKBHandler}, \textbf{CKBRequestHandler}, \textbf{EvaluationHandler}, \textbf{DataManager}, \textbf{DatabaseServer} \\
         \end{tabularx}
 \end{table}
 
@@ -176,7 +177,7 @@ In this section, it is provided the mapping between the requirements defined in 
     \begin{tabularx}{\textwidth}{X}
         \toprule
         \textbf{R22} The system must create the GitHub repository containing the code kata. \\ \midrule
-        \textbf{CKBHandler}                   \\
+        \textbf{CKBHandler}, \textbf{DataManager}, \textbf{DatabaseServer}                   \\
     \end{tabularx}
 \end{table}
 
@@ -192,7 +193,7 @@ In this section, it is provided the mapping between the requirements defined in 
     \begin{tabularx}{\textwidth}{X}
         \toprule
         \textbf{R24} The system must allow students to join a tournament. \\ \midrule
-        \textbf{UserApp}, \textbf{CKBHandler}, \textbf{DataManager}, \textbf{DatabaseServer} \\
+        \textbf{UserApp}, \textbf{CKBHandler}, \textbf{CKBRequestHandler}, \textbf{STournamentHandler}, \textbf{DataManager}, \textbf{DatabaseServer} \\
         \end{tabularx}
 \end{table}
 
@@ -207,7 +208,7 @@ In this section, it is provided the mapping between the requirements defined in 
     \begin{tabularx}{\textwidth}{X}
         \toprule
         \textbf{R26} The system must allow students to subscribe to a battle within the context of a tournament they signed-up to. \\ \midrule
-        \textbf{UserApp}, \textbf{CKBHandler}, \textbf{DataManager}, \textbf{DatabaseServer}                    \\
+        \textbf{UserApp}, \textbf{CKBHandler}, \textbf{CKBRequestHandler}, \textbf{SBattleHandler}, \textbf{DataManager}, \textbf{DatabaseServer}                    \\
     \end{tabularx}
 \end{table}
 
@@ -215,7 +216,7 @@ In this section, it is provided the mapping between the requirements defined in 
     \begin{tabularx}{\textwidth}{X}
         \toprule
         \textbf{R27} The system must allow students to invite other students to a battle. \\ \midrule
-        \textbf{UserApp}, \textbf{CKBHandler}                     \\
+        \textbf{UserApp}, \textbf{CKBHandler}, \textbf{CKBRequestHandler}, \textbf{SBattleHandler}                     \\
     \end{tabularx}
 \end{table}
 
@@ -247,7 +248,7 @@ In this section, it is provided the mapping between the requirements defined in 
     \begin{tabularx}{\textwidth}{X}
         \toprule
         \textbf{R31} The system must pull the latest submitted sources before the submission deadline expired. \\ \midrule
-        \textbf{CKBHandler}                    \\
+        \textbf{CKBHandler}, \textbf{DataManager}, \textbf{DatabaseServer}                    \\
     \end{tabularx}
 \end{table}
 
@@ -255,7 +256,7 @@ In this section, it is provided the mapping between the requirements defined in 
     \begin{tabularx}{\textwidth}{X}
         \toprule
         \textbf{R32} The system must analyze the students' projects. \\ \midrule
-        \textbf{CKBHandler}, \textbf{EvaluationTool}  \\
+        \textbf{CKBHandler}, \textbf{EvaluationTool}, \textbf{DataManager}, \textbf{DatabaseServer}   \\
     \end{tabularx}
 \end{table}
 
@@ -263,7 +264,7 @@ In this section, it is provided the mapping between the requirements defined in 
     \begin{tabularx}{\textwidth}{X}
         \toprule
         \textbf{R33} The system must run the students' projects. \\ \midrule
-        \textbf{CKBHandler}, \textbf{EvaluationTool}                     \\  
+        \textbf{CKBHandler}, \textbf{EvaluationTool}, \textbf{DataManager}, \textbf{DatabaseServer}                      \\  
     \end{tabularx}
 \end{table}
 
@@ -271,7 +272,7 @@ In this section, it is provided the mapping between the requirements defined in 
     \begin{tabularx}{\textwidth}{X}
         \toprule
         \textbf{R34} The system must evaluate the students' projects. \\ \midrule
-        \textbf{CKBHandler}, \textbf{EvaluationTool}                     \\
+        \textbf{CKBHandler}, \textbf{EvaluationTool}, \textbf{DataManager}, \textbf{DatabaseServer}                      \\
     \end{tabularx}
 \end{table}
 
@@ -311,7 +312,7 @@ In this section, it is provided the mapping between the requirements defined in 
     \begin{tabularx}{\textwidth}{X}
         \toprule
         \textbf{R39} The system must allow users to visualize ongoing tournaments. \\ \midrule
-        \textbf{UserApp}, \textbf{CKBHandler}, \textbf{DataManager}, \textbf{DatabaseServer}                    \\
+        \textbf{UserApp}, \textbf{CKBHandler}, \textbf{CKBRequestHandler}, \textbf{STournamentHandler} if the user is a student, \textbf{EdTournamentHandler} if the user is an educator, \textbf{DataManager}, \textbf{DatabaseServer}                    \\
     \end{tabularx}
 \end{table}
 
@@ -319,7 +320,7 @@ In this section, it is provided the mapping between the requirements defined in 
     \begin{tabularx}{\textwidth}{X}
         \toprule
         \textbf{R40} The system must allow users to visualize ongoing tournament ranks. \\ \midrule
-        \textbf{UserApp}, \textbf{CKBHandler}, \textbf{DataManager}, \textbf{DatabaseServer}                      \\
+        \textbf{UserApp}, \textbf{CKBHandler}, \textbf{CKBRequestHandler}, \textbf{STournamentHandler} if the user is a student, \textbf{EdTournamentHandler} if the user is an educator, \textbf{DataManager}, \textbf{DatabaseServer}                      \\
     \end{tabularx}
 \end{table}
 
@@ -327,7 +328,7 @@ In this section, it is provided the mapping between the requirements defined in 
     \begin{tabularx}{\textwidth}{X}
         \toprule
         \textbf{R41} The system must allow users to visualize students' profiles.  \\ \midrule
-        \textbf{UserApp}, \textbf{CKBHandler}, \textbf{DataManager}, \textbf{DatabaseServer}                    \\
+        \textbf{UserApp}, \textbf{CKBHandler}, \textbf{CKBRequestHandler}, \textbf{ProfileHandler}, \textbf{DataManager}, \textbf{DatabaseServer}                    \\
     \end{tabularx}
 \end{table}
 

@@ -29,11 +29,11 @@ The application server holds the business logic of the application and it can co
 \end{figure}
 The figure above shows the system components and interfaces at a high level.
 \begin{itemize}
-    \item \textbf{CKB Server: } it represents the core of the CKB system and it contains all the business logic.
+    \item \textbf{CKBServer: } it represents the core of the CKB system and it contains all the business logic.
     \item \textbf{UserApp: } it represents the web application used by the users to access the CKB platform. Users register and log into the system through the 
-    \textbf{Auth interface} and access the functionalities offered by the system through the \textbf{CKB API}.
-    \item \textbf{Database Server: } it represents the DBMS used to store the data of the system. The system can access the data through the \textbf{DBMS API}.
-    \item \textbf{Mail Server: } it represents the mail server used to send notifications to the users. The system can access the mail server through the \textbf{MailServer API}.
+    \textbf{AuthInterface} and access the functionalities offered by the system through the \textbf{CKB API}.
+    \item \textbf{DatabaseServer: } it represents the DBMS used to store the data of the system. The system can access the data through the \textbf{DBMS API}.
+    \item \textbf{MailServer: } it represents the mail server used to send notifications to the users. The system can access the mail server through the \textbf{MailServer API}.
 \end{itemize}
 
 \subsection{CKB Server detailed view}
@@ -82,7 +82,7 @@ SRegistrationHandler also communicate with \textbf{GitHubAPI} to link the CKB ac
 \end{figure}
 The figure above shows the internal components of the CKBHandler.
 \begin{itemize}
-    \item \textbf{RequestHandler: } it handles the requests acting as a router dispatching requests to the right handler.
+    \item \textbf{CKBRequestHandler: } it handles the requests acting as a router dispatching requests to the right handler.
     \item \textbf{EdCKBHandler: } it is composed by the \textbf{EdTournamentHandler}, the \textbf{EdBattleHandler} and the \textbf{EvaluationHandler}.
     EdTournamentHandler is responsible for the creation and the conclusion of tournaments, EdBattleHandler is responsible for the creation of battles, and 
     EvaluationHandler is responsible for the evaluation of the students' code.
