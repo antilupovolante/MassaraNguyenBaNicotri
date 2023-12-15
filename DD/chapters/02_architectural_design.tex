@@ -14,7 +14,7 @@ A web interface will be used to access the platform.
 The overall architecture of the system is based on a three-tier architecture, 
 with the application servers interacting with a database management system and
 using APIs to retrieve and store data. \\
-The three logical layers corrspond to three different physical layers and each layer can communicate only with the adjacent ones.
+The three logical layers correspond to three different physical layers and each layer can communicate only with the adjacent ones.
 The interactions between clients and server are stateless according to the REST architectural style. \\
 The web server is responsible for the communication with the clients and for the management of the requests. \\
 The application server holds the business logic of the application and it can communicate with the database server to retrieve and store data, also with the GitHub platform and the Email Service. 
@@ -42,7 +42,7 @@ The figure above shows the system components and interfaces at a high level.
     \includegraphics[width=\textwidth]{images/component_view/CKB_component.png}
     \caption{CKB server component view}
 \end{figure}
-The figure above shows the internal componenents of the CKB server.
+The figure above shows the internal components of the CKB server.
 \begin{itemize}
     \item \textbf{AuthHandler: } it handles the login and registration of the users. It offers the \textbf{AuthCheckInterface} to allow other components to check 
     if a user is authorized. It communicates with the \textbf{MailInterface} to manage confirmation emails and with the \textbf{DataInterface} to check the credentials
@@ -62,7 +62,7 @@ The figure above shows the internal componenents of the CKB server.
     \includegraphics[width=\textwidth]{images/component_view/Auth.png}
     \caption{Auth component view}
 \end{figure}
-The figure above shows the internal componenents of the AuthHandler.
+The figure above shows the internal components of the AuthHandler.
 \begin{itemize}
     \item \textbf{RequestHandler: } it handles the requests acting as a router dispatching requests to the right handler.
     \item \textbf{EdHandler: } it is composed by the \textbf{EdLoginHandler} and the \textbf{EdRegHandler}. The former handles the login of educators, 
@@ -105,7 +105,7 @@ advantages, such as:
 \begin{itemize}
     \item  \textbf{Scalability and flexibility: }the ability of adding and removing resources efficiently throw 
     the use of load balancing services which allows the application server to manage traffic and workload. 
-    \item   \textbf{Security: }the ability to protect the application server using firewall and DMZ, againist cyberattacks and possible threats.
+    \item   \textbf{Security: }the ability to protect the application server using firewall and DMZ, against cyber attacks and possible threats.
     \item   \textbf{Cost efficiency:} the ability to pay only for the resources used which can help to lower the overall cost. 
 \end{itemize}
 
@@ -269,7 +269,7 @@ to the tournament to notify them that the updated tournament rank is available.
 
 \subsection{Conclusion of a tournament}
 The figure below shows the sequence diagram of the conclusion of a tournament. The educator chooses to conclude the tournament, so the system 
-awards badges to students and sends an email notification to all suscribed students.
+awards badges to students and sends an email notification to all subscribed students.
 \begin{figure}[H]
     \centering
     \includegraphics[width=1\textwidth]{images/seq_diagrams/tournament_conclusion_DD.png}
@@ -296,7 +296,7 @@ In this section, the figure below depicts the interface diagram with the compone
 \end{figure}
 \clearpage
 
-\section{Selected architetural styles and patterns}
+\section{Selected architectural styles and patterns}
 
 \begin{itemize}
     \item \textbf{Three-layers architecture: }the system is based on a three-layers architecture, presentation, application and data layer. The separation of the layers
