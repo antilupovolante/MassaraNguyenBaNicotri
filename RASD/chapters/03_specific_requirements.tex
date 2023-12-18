@@ -58,7 +58,7 @@ In this subsection we present user interfaces for both types of users, educators
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.8\textwidth]{images/user_interface/UI_sw2-09.png}
-    \caption{Submission of a new battle - student's page}
+    \caption{Subscription to a new battle - student's page}
 \end{figure}
 
 \begin{figure}[H]
@@ -70,7 +70,7 @@ In this subsection we present user interfaces for both types of users, educators
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.8\textwidth]{images/user_interface/UI_sw2-11.png}
-    \caption{Creation of a tournament page - educator's page}
+    \caption{Creation of a tournament - educator's page}
 \end{figure}
 
 \begin{figure}[H]
@@ -88,7 +88,7 @@ In this subsection we present user interfaces for both types of users, educators
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.8\textwidth]{images/user_interface/UI_sw2-14.png}
-    \caption{Creation of a battle page - educator's page}
+    \caption{Creation of a battle - educator's page}
 \end{figure}
 
 \begin{figure}[H]
@@ -101,16 +101,16 @@ In this subsection we present user interfaces for both types of users, educators
 \subsection{Hardware Interfaces}
 This section describes the logical and physical characteristics of each interface 
 between the hardware and software components of the system.\\
-Both educators and students need to have a computer to use the CKB platform.\\
+Both educators and students need to have a computer to use the CKB platform.
 \subsection{Software Interfaces}
 This section describes the connections between the system and other specific software components.\\
-CodeKataBattle is a web application, so it needs a web browser to be used.\\
+CodeKataBattle is a web application, so it needs a web browser to be used.
 \subsection{Communication Interfaces}
 This section describes the requirements associated with any communication function required
 by this system.\\
-All the communications of the eMall infrastructure are made via the HTTP application layer
+All the communications of the CKB infrastructure are made via the HTTPS application layer
 protocol: obviously, all the devices using the platform must be connected via WiFi or mobile
-network (LTE/3G/4G/5G).\\
+network (LTE/3G/4G/5G).
 
 \section{Functional Requirements}
 \subsection{Use Cases Diagrams}
@@ -164,17 +164,16 @@ network (LTE/3G/4G/5G).\\
 {The actor browses and opens the webapp.} % entry condition
 { % event flow
     \begin{enumerate}
-        \item The actor clicks the 'Sign up' button.
-        \item The actor fills the sign-up form with email and password and submits the form.
-        \item The system calls Email Service API to send to the actor an email containing a secret code.
-        \item The Email Service sends the email to the actor.
-        \item The actor submits the received verification code.
-        \item The system displays a success message.
-        \item The actor adds his personal information (name, surname, birth date) and submits the form.
+        \item The actor clicks the 'Register' button.
+        \item The actor fills the sign-up form personal information, email and password.
         \item The student adds his GitHub username and submits the information.
         \item The system calls GitHub Service API to check if the username is valid.
         \item The GitHub Service sends the response to the system.
         \item The system displays a success message about the verification of GitHub username.
+        \item The system calls Email Service API to send to the actor an email containing a secret code.
+        \item The Email Service sends the email to the actor.
+        \item The actor submits the received verification code.
+        \item The system displays a success message.
         \item The system processes the provided information and creates a new account.
     \end{enumerate}
 }
@@ -203,6 +202,7 @@ In case of exception the system will notify user with a human-readable message.
         \item The educator fills the form with tournament name, description and deadline.
         \item The educator can choose to define a set of badges that can be earned by the students.
         \item The educator can invite other educators to join the tournament, giving them the possibility to create battles.
+        \item The educator clicks the "Confirm" button and submits the form. 
         \item The system sends an email to the invited educators.
     \end{enumerate}
 }
@@ -211,7 +211,7 @@ In case of exception the system will notify user with a human-readable message.
     \begin{itemize}
         \item The educator provides an invalid name or description.
         \item The educator provides a deadline that is not in the future.
-        \item The educator provides an invalid email.
+        \item The educator provides invalid emails of the invited colleagues.
     \end{itemize}
 }
 {
@@ -224,25 +224,26 @@ In case of exception the system will notify user with a human-readable message.
 {4}
 {Battle creation}
 {Educator, Student, Email Service}
-{The authorized educator is in the tournament page.}
+{The authorized educator is in the tournament page in which he wants to create the new battle.}
 {
     \begin{enumerate}
-        \item The educator requires the "Create a battle" page.
-        \item The system shows the "Create a battle" page to the educator.
-        \item The educator gives a name to the tournament.
+        \item The educator clicks the "Create a new battle" button.
+        \item The system shows the "Creation of a battle" page to the educator.
+        \item The educator gives a name to the battle.
         \item The educator uploads the code kata.
         \item The educator sets the minimum and maximum number of group members.
-        \item The educator sets a deadline to subscribe to the tournament.
+        \item The educator sets a deadline to subscribe to the battle.
         \item The educator sets a deadline to submit the solutions.
-        \item The educator can choose to include a manual evaluation of the students' work.
+        \item The educator can choose to include a manual evaluation of the students' work and specifies the battle rules.
+        \item The educator clicks the "Confirm" button and submits the form.
         \item The system sends an email to all the students that are subscribed to the tournament.
     \end{enumerate}
 }
-{The battle is created and the battle page is shown.}
+{The battle is created.}
 {
     \begin{itemize}
         \item The educator provides an invalid name.
-        \item The system does not upload a code kata.
+        \item The educator does not upload a code kata.
         \item The educator provides an invalid number of group members.
         \item The educator provides a deadline that is not in the future.
     \end{itemize}
@@ -324,7 +325,7 @@ In case of exception the system will notify user with a human-readable message.
     \begin{enumerate}
         \item The student clicks the "Join" button corresponding to the battle.
         \item The system shows a form to join the battle.
-        \item The student fills the form with other students' email and clicks the "Create group" button.
+        \item The student fills the form with other students' email and clicks the "Confirm" button.
         \item The system creates the team but does not sign it up to the battle yet.
         \item The system sends an email to the students.
     \end{enumerate}
@@ -356,7 +357,7 @@ In case of exception the system will notify user with a human-readable message.
         \item The student clicks the "Join" button.
         \item The system updates the group.
         \item If constraints are met, the system signs up the group to the battle.
-        \item The system sends an email to the student.
+        \item The system sends an email to the students of the subscribed team.
     \end{enumerate}
 }
 {The tournament page is shown.}
@@ -401,10 +402,15 @@ In case of exception the system will notify user with a human-readable message.
         \item The GitHub service provides the requested code to the system.
         \item The system makes the automatic evaluation.
         \item The system sets the calculated score to the code.
-        \item The system notify via email the student about the evaluation and the score assigned to his code.
+    \end{enumerate}
+    If the battle has finished: 
+    \begin{enumerate} [resume]
         \item The educator can get the code from the system.
         \item The system provides the code to the educator.
         \item The educator can manually evaluate the code at the end of the battle and set a score.
+    \end{enumerate}
+    Finally: 
+    \begin{enumerate} [resume]
         \item The system updates the score.
     \end{enumerate}
 }
@@ -579,22 +585,23 @@ They showcase the sequence and dependencies of various tasks, actions and proces
 
 \textbf{Registration}\\
 In the following figure the process of registration for both students and educators is shown. 
-The user has to insert his email, choose  password and specify if he is a student or an educator.\\
-If the email is incorrect, the system repeats the operations. Otherwise, the system asks for personal information,
+The user has to insert his personal information, his email, he has to choose password and specify if he is a student or an educator.\\
+If he is a student, he has to link his GitHub account. 
+If the email is incorrect, the system repeats the operation. Otherwise, the system
  sends a verification code and checks it.\\If everything goes well, the system creates the new account.
 \begin{figure} [H]
   \centering
-  \includegraphics[width=0.80\textwidth]{images/activity_diagrams/Registration.png}
+  \includegraphics[width=0.68\textwidth]{images/activity_diagrams/Registration.png}
   \caption{Registration state chart}
 \end{figure} \vspace{1cm}
 
 \textbf{Login}\\
 In the following figure the process of login for both students and educators is shown. 
 The user has to insert his email and the password associated to his account.
-\\If the credentials are incorrect, the system repeats the operations. Otherwise the user visualizes the homepage.
+\\If the credentials are incorrect, the system repeats the operations. \\Otherwise, the user visualizes the homepage.
 \begin{figure} [H]
   \centering
-  \includegraphics[width=0.7\textwidth]{images/activity_diagrams/Login.png}
+  \includegraphics[width=0.815\textwidth]{images/activity_diagrams/Login.png}
   \caption{Login state chart}
 \end{figure} \vspace{1cm}
 
@@ -670,55 +677,55 @@ the student if the settings of the tournament allow it.
 \begin{table}[H]
     \begin{tabularx}{\textwidth}{X}
         \toprule
-        \textbf{G1} Allow students to compete in a tournament                                                       \\ \midrule
+        \textbf{G1} Allow students to compete in a tournament.                                                       \\ \midrule
         \textbf{Requirements}                                                                                                        \\ \midrule
-        \textbf{R1} The system must allow the user to register himself to the system                                                    \\
-        \textbf{R2} The system must allow the user to register himself to the system                                         \\ 
-        \textbf{R3} The system must verify the uniqueness of the email of the user to be registered                                        \\ 
+        \textbf{R1} The system must allow the user to register himself to the system.                                                    \\
+        \textbf{R2} The system must allow the user to register himself to the system.                                         \\ 
+        \textbf{R3} The system must verify the uniqueness of the email of the user to be registered.                                        \\ 
         \textbf{R4} The system must send a confirmation on the user's email after his registration.                         \\ 
-        \textbf{R5} The system must allow the user to log into their account by entering their email and password           \\ 
-        \textbf{R11} The system must allow students to collect badges        \\ 
-        \textbf{R12} The system must assign badges to eligible students          \\
+        \textbf{R5} The system must allow the user to log into their account by entering their email and password.           \\ 
+        \textbf{R11} The system must allow students to collect badges.        \\ 
+        \textbf{R12} The system must assign badges to eligible students.          \\
         \textbf{R13} The system must notify via email students when a tournament they subscribed to ends. \\ 
-        \textbf{R17} The system must allow authorized educators to create battles        \\ 
-        \textbf{R18} The system must allow the battle creator to upload the code kata       \\ 
-        \textbf{R19} The system must allow the battle creator to set the battle configuration                \\ 
-        \textbf{R20} The system must allow the educator to manually evaluate the students' project          \\    
-        \textbf{R21} The system must send the link to the repository to all students subscribed to the battle            \\ 
-        \textbf{R22} The system must create the GitHub repository containing the code kata               \\ 
-        \textbf{R23} The system must notify via email students when a new tournament is created            \\ 
-        \textbf{R24} The system must allow students to join a tournament     \\ 
-        \textbf{R25} The system must notify via email students when a new battle is created within the context of a tournament they signed-up to        \\ 
-        \textbf{R26} The system must allow students to subscribe to a battle  within the context of a tournament they signed-up to            \\
-        \textbf{R27} The system must allow students to invite other students to a battle     \\ 
-        \textbf{R28} The system must notify via email students when they are invited to join \\ a battle by another student        \\ 
+        \textbf{R17} The system must allow authorized educators to create battles.        \\ 
+        \textbf{R18} The system must allow the battle creator to upload the code kata.       \\ 
+        \textbf{R19} The system must allow the battle creator to set the battle configuration.                \\ 
+        \textbf{R20} The system must allow the educator to manually evaluate the students' project.          \\    
+        \textbf{R21} The system must send the link to the repository to all students subscribed to the battle.            \\ 
+        \textbf{R22} The system must create the GitHub repository containing the code kata.               \\ 
+        \textbf{R23} The system must notify via email students when a new tournament is created.            \\ 
+        \textbf{R24} The system must allow students to join a tournament.     \\ 
+        \textbf{R25} The system must notify via email students when a new battle is created within the context of a tournament they signed-up to.        \\ 
+        \textbf{R26} The system must allow students to subscribe to a battle  within the context of a tournament they signed-up to.            \\
+        \textbf{R27} The system must allow students to invite other students to a battle.     \\ 
+        \textbf{R28} The system must notify via email students when they are invited to join \\ a battle by another student.        \\ 
         \textbf{R29} The system must notify via email students when the final battle rank becomes available.       \\ 
-        \textbf{R30} The system must notify via email students when the final tournament rank becomes available     \\ 
+        \textbf{R30} The system must notify via email students when the final tournament rank becomes available.     \\ 
         
     \end{tabularx}
 \end{table}
 
 \begin{table}[H]
     \begin{tabularx}{\textwidth}{X}
-        \textbf{R31} The system must pull the latest submitted sources before the submission deadline expired     \\  
-        \textbf{R35} The system must update the battle scores of the teams       \\ 
-        \textbf{R43} The system must notify via email students when they join a tournament. \\
-        \textbf{R36} The system must compute the battle rank     \\  
-        \textbf{R37} The system must update the students' personal tournament scores         \\ 
-        \textbf{R38} The system must compute the tournament rank         \\
-        \textbf{R39} The system must allow users to visualize ongoing tournaments    \\
-        \textbf{R40} The system must allow users to visualize ongoing tournament ranks       \\
-        \textbf{R41} The system must allow users to visualize students' profiles     \\
+        \textbf{R31} The system must pull the latest submitted sources before the submission deadline expired.     \\  
+        \textbf{R35} The system must update the battle scores of the teams.       \\ 
+        \textbf{R36} The system must compute the battle rank.     \\  
+        \textbf{R37} The system must update the students' personal tournament scores.         \\ 
+        \textbf{R38} The system must compute the tournament rank.         \\
+        \textbf{R39} The system must allow users to visualize ongoing tournaments.    \\
+        \textbf{R40} The system must allow users to visualize ongoing tournament ranks.       \\
+        \textbf{R41} The system must allow users to visualize students' profiles.     \\
         \textbf{R42} The system must notify via email students when their work has been manually evaluated. \\
+        \textbf{R43} The system must notify via email students when they join a tournament. \\
         \midrule
         \textbf{Domain Assumptions}                                                                                                  \\ \midrule
-        \textbf{D1} Users provide correct information during the registration process \\
-        \textbf{D2} Students have an email and a GitHub account     \\
-        \textbf{D3} Users have a stable and reliable Internet connection \\
-        \textbf{D4} Students know the functioning of GitHub and GitHub Actions      \\
-        \textbf{D5} Educators create at least one battle within a tournament        \\
-        \textbf{D6} Students must give consent to access their GitHub account       \\
-        \textbf{D7} Educators upload a correct code kata        \\
+        \textbf{D1} Users provide correct information during the registration process. \\
+        \textbf{D2} Students have an email and a GitHub account.     \\
+        \textbf{D3} Users have a stable and reliable Internet connection. \\
+        \textbf{D4} Students know the functioning of GitHub and GitHub Actions.      \\
+        \textbf{D5} Educators create at least one battle within a tournament.        \\
+        \textbf{D6} Students must give consent to access their GitHub account.       \\
+        \textbf{D8} Educators upload a correct code kata.        \\
         \bottomrule
     \end{tabularx}
 \end{table}
@@ -728,32 +735,32 @@ the student if the settings of the tournament allow it.
         \toprule
         \textbf{G2} Allows educators to create challenges for students.                                                    \\ \midrule
         \textbf{Requirements}                                                                                                        \\ \midrule
-        \textbf{R1} The system must allow the user to register himself to the system                                                   \\
-        \textbf{R3} The system must verify the uniqueness of the mail of the user to be registered                                       \\ 
+        \textbf{R1} The system must allow the user to register himself to the system.                                                   \\
+        \textbf{R3} The system must verify the uniqueness of the mail of the user to be registered.                                       \\ 
         \textbf{R4} The system must send a confirmation on the user's email after his registration.                         \\ 
-        \textbf{R5} The system must allow the user to log into their account by entering their email and password           \\
+        \textbf{R5} The system must allow the user to log into their account by entering their email and password.           \\
         \textbf{R6} The system must allow educators to create tournaments.              \\ 
         \textbf{R7} The system must allow the tournament creator to invite other educators.         \\ 
-        \textbf{R8} The systems must allow the tournament creator to end the tournament     \\ 
-        \textbf{R9} The system must allow the tournament creator to set the tournament configuration          \\ 
+        \textbf{R8} The systems must allow the tournament creator to end the tournament.     \\ 
+        \textbf{R9} The system must allow the tournament creator to set the tournament configuration.          \\ 
         \textbf{R10} The system must allow the tournament creator to define badges.      \\ 
-        \textbf{R11} The system must allow students to collect badges        \\ 
-        \textbf{R12} The system must assign badges to eligible students          \\  
+        \textbf{R11} The system must allow students to collect badges.        \\ 
+        \textbf{R12} The system must assign badges to eligible students.          \\  
         \textbf{R14} The system must notify via email students when they are awarded a badge. \\ 
-        \textbf{R15} The system must notify via email educators when it is time to evaluate students' project      \\ 
-        \textbf{R16} The system must notify via email educators when they are invited to join a tournament      \\
-        \textbf{R17} The system must allow authorized educators to create battles        \\ 
-        \textbf{R18} The system must allow the battle creator to upload the code kata       \\
-        \textbf{R19} The system must allow the battle creator to set the battle configuration       \\ 
-        \textbf{R23} The system must notify via email students when a new tournament is created            \\
-        \textbf{R41} The system must allow users to visualize students' profiles     \\
+        \textbf{R15} The system must notify via email educators when it is time to evaluate students' project.      \\ 
+        \textbf{R16} The system must notify via email educators when they are invited to join a tournament.      \\
+        \textbf{R17} The system must allow authorized educators to create battles.        \\ 
+        \textbf{R18} The system must allow the battle creator to upload the code kata.       \\
+        \textbf{R19} The system must allow the battle creator to set the battle configuration.       \\ 
+        \textbf{R23} The system must notify via email students when a new tournament is created.            \\
+        \textbf{R41} The system must allow users to visualize students' profiles.     \\
         \midrule
         \textbf{Domain Assumptions}                                                                                                  \\ \midrule
-        \textbf{D1} Users provide correct information during the registration process \\   
-        \textbf{D3} Users have a stable and reliable Internet connection \\
-        \textbf{D5} Educators create at least one battle within a tournament        \\
-        \textbf{D7} Educators have a good knowledge of programming      \\
-        \textbf{D8} Educators upload a correct code kata        \\
+        \textbf{D1} Users provide correct information during the registration process. \\   
+        \textbf{D3} Users have a stable and reliable Internet connection. \\
+        \textbf{D5} Educators create at least one battle within a tournament.        \\
+        \textbf{D7} Educators have a good knowledge of programming.      \\
+        \textbf{D8} Educators upload a correct code kata.        \\
         \bottomrule
     \end{tabularx}
 \end{table}
@@ -763,26 +770,26 @@ the student if the settings of the tournament allow it.
         \toprule
         \textbf{G3} Allows educators to grade students' projects.                                                    \\ \midrule
         \textbf{Requirements}                                                                                                        \\ \midrule
-        \textbf{R1} The system must allow the user to register himself to the system                                                     \\
-        \textbf{R3} The system must verify the uniqueness of the email of the user to be registered                                       \\ 
-        \textbf{R4} The system must send a confirmation on the user's email after his registration                         \\
-        \textbf{R5} The system must allow the user to log into their account by entering their email and password           \\
+        \textbf{R1} The system must allow the user to register himself to the system.                                                     \\
+        \textbf{R3} The system must verify the uniqueness of the email of the user to be registered.                                       \\ 
+        \textbf{R4} The system must send a confirmation on the user's email after his registration.                         \\
+        \textbf{R5} The system must allow the user to log into their account by entering their email and password.           \\
         \textbf{R6} The system must allow educators to create tournaments.              \\
         \textbf{R7} The system must allow the tournament creator to invite other educators.         \\  
         \textbf{R20} The system must allow the educator to manually evaluate the students' project.          \\ 
-        \textbf{R31} The system must pull the latest submitted sources before the submission deadline expired     \\ 
-        \textbf{R32} The system must analyze the students' projects      \\ 
-        \textbf{R33} The system must run the students' projects      \\
-        \textbf{R34} The system must evaluate the students' projects     \\ 
-        \textbf{R38} The system must compute the tournament rank                 \\ 
+        \textbf{R31} The system must pull the latest submitted sources before the submission deadline expired.     \\ 
+        \textbf{R32} The system must analyze the students' projects.      \\ 
+        \textbf{R33} The system must run the students' projects.      \\
+        \textbf{R34} The system must evaluate the students' projects.     \\ 
+        \textbf{R38} The system must compute the tournament rank.                 \\ 
         \textbf{R42} The system must notify via email students when their work has been manually evaluated. \\
         \midrule
         \textbf{Domain Assumptions}                                                                                                  \\ \midrule
-        \textbf{D1} Users provide correct information during the registration process \\           
-        \textbf{D2} Students have an email and a GitHub account     \\
-        \textbf{D3} Users have a stable and reliable Internet connection \\
-        \textbf{D5} Educators create at least one battle within a tournament        \\
-        \textbf{D7} Educators have a good knowledge of programming      \\
+        \textbf{D1} Users provide correct information during the registration process. \\           
+        \textbf{D2} Students have an email and a GitHub account.     \\
+        \textbf{D3} Users have a stable and reliable Internet connection. \\
+        \textbf{D5} Educators create at least one battle within a tournament.        \\
+        \textbf{D7} Educators have a good knowledge of programming.      \\
         \bottomrule
     \end{tabularx}
 \end{table}
@@ -792,22 +799,22 @@ the student if the settings of the tournament allow it.
         \toprule
         \textbf{G4} Allows students to collect badges in a tournament proving their skills.                                       \\ \midrule
         \textbf{Requirements}                                                                                                        \\ \midrule
-        \textbf{R1} The system must allow the user to register himself to the system                                                  \\
-        \textbf{R2} The system must allow the user to register himself to the system                                               \\ 
-        \textbf{R3} The system must verify the uniqueness of the email of the user to be registered                                        \\ 
+        \textbf{R1} The system must allow the user to register himself to the system.                                                  \\
+        \textbf{R2} The system must allow the students to link their GitHub account.                                               \\ 
+        \textbf{R3} The system must verify the uniqueness of the email of the user to be registered.                                        \\ 
         \textbf{R4} The system must send a confirmation on the user's email after his registration.                         \\ 
-        \textbf{R5} The system must allow the user to log into their account by entering their email and password           \\ 
+        \textbf{R5} The system must allow the user to log into their account by entering their email and password.           \\ 
         \textbf{R10} The system must allow the tournament creator to define badges.      \\ 
-        \textbf{R11} The system must allow students to collect badges        \\ 
-        \textbf{R12} The system must assign badges to eligible students          \\  
+        \textbf{R11} The system must allow students to collect badges.       \\ 
+        \textbf{R12} The system must assign badges to eligible students.          \\  
         \textbf{R14} The system must notify via email students when they are awarded a badge. \\ 
-        \textbf{R31} The system must pull the latest submitted sources before the submission deadline expired     \\ 
-        \textbf{R32} The system must analyze the students' projects      \\ 
-        \textbf{R38} The system must compute the tournament rank                 \\ 
+        \textbf{R31} The system must pull the latest submitted sources before the submission deadline expired.     \\ 
+        \textbf{R32} The system must analyze the students' projects.      \\ 
+        \textbf{R38} The system must compute the tournament rank.                 \\ 
         \midrule
         \textbf{Domain Assumptions}                                                                                                  \\ \midrule
-        \textbf{D1} Users provide correct information during the registration process \\          
-        \textbf{D3} Users have a stable and reliable Internet connection \\
+        \textbf{D1} Users provide correct information during the registration process. \\          
+        \textbf{D3} Users have a stable and reliable Internet connection. \\
         \bottomrule
     \end{tabularx}
 \end{table}
