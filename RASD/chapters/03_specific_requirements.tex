@@ -379,9 +379,10 @@ In case of exception the system will notify user with a human-readable message.
         \item The student forks the code kata repository.
         \item The student sets up the automated workflow on GitHub Actions.
         \item The student pushes his code to the repository.
+        \item The system performs the automated evaluated.
     \end{enumerate}
 }
-{The system performs the automated evaluation and updates the battle score.}
+{The system updates the battle score.}
 {
     The battle submission deadline has expired.
 }
@@ -391,46 +392,21 @@ In case of exception the system will notify user with a human-readable message.
 
 \usecase
 {9}
-{Evaluation} % name
-{Student, Educator, GitHub Service} % actor
-{The student has committed the code.} % entry condition
-{ % event flow
-    \begin{enumerate}
-        \item The student pushes the code to GitHub.
-        \item The GitHub service notify the system about the new push.
-        \item The system pulls the code from GitHub service.
-        \item The GitHub service provides the requested code to the system.
-        \item The system makes the automatic evaluation.
-        \item The system sets the calculated score to the code.
-    \end{enumerate}
-    If the battle has finished: 
-    \begin{enumerate} [resume]
-        \item The educator can get the code from the system.
-        \item The system provides the code to the educator.
-        \item The educator can manually evaluate the code at the end of the battle and set a score.
-    \end{enumerate}
-    Finally: 
-    \begin{enumerate} [resume]
-        \item The system updates the score.
-    \end{enumerate}
-}
-{The system sends an email to the students.} % exit condition
-{ % exceptions
- None. 
-}
-{ % notes
-}
-\clearpage
-
-\usecase
-{10}
 {Conclusion of a battle}
 {Student, Email Service}
 {The submission deadline (and, if required, the manual evaluation stage) has expired.}
 {
+    If the manual evaluation is required:
+    \begin{enumerate}
+        \item The educator requests the code from the system.
+        \item The system provides the code to the educator.
+        \item The educator manually evaluates the code at the end of the battle and sets a score.
+        \item The system updates the battle score.
+    \end{enumerate}
+    Finally:
     \begin{enumerate}
         \item The system updates the tournament score and rank.
-        \item The system sends an email to the students.
+        \item The system sends an email to the students subscribed to the battle.
     \end{enumerate}
 }
 {The battle is closed.}
@@ -441,7 +417,7 @@ In case of exception the system will notify user with a human-readable message.
 
 
 \usecase
-{11}
+{10}
 {Conclusion of a tournament}
 {Educator, Student, Email Service}
 {The authorized educator is in the tournament page.}
@@ -461,7 +437,7 @@ In case of exception the system will notify user with a human-readable message.
 \clearpage
 
 \usecase
-{12}
+{11}
 {Profile visualization} % name
 {Student, Educator} % actor
 {The actor is logged in the system.} % entry condition
@@ -546,28 +522,21 @@ In case of exception the system will notify user with a human-readable message.
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.95\textwidth]{images/seq_diagrams/battle_execution.png}
-    \caption{Joining a battle by joining a group sequence diagram}
-\end{figure}
-\clearpage
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.95\textwidth]{images/seq_diagrams/Evaluation.png}
-    \caption{Evaluation sequence diagram}
+    \caption{Execution of a battle sequence diagram}
 \end{figure}
 \clearpage
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.95\textwidth]{images/seq_diagrams/battle_conclusion.png}
-    \caption{Joining a battle by joining a group sequence diagram}
+    \caption{Conclusion of a battle sequence diagram}
 \end{figure}
 \clearpage
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.95\textwidth]{images/seq_diagrams/tournament_conclusion.png}
-    \caption{Joining a battle by joining a group sequence diagram}
+    \caption{Tournament conclusion sequence diagram}
 \end{figure}
 \clearpage
 
@@ -669,8 +638,7 @@ the student if the settings of the tournament allow it.
     R39 \label{R.39}& The system must allow users to visualize ongoing tournaments. \\ \hline
     R40 \label{R.40}& The system must allow users to visualize ongoing tournament ranks. \\ \hline
     R41 \label{R.41}& The system must allow users to visualize students' profiles. \\ \hline
-    R42 \label{R.42}& \begin{tabular}[c]{@{}l@{}} The system must notify via email students when their work has \\ been manually evaluated.\end{tabular} \\ \hline
-    R43 \label{R.43}& The system must notify via email students when they join a tournament. \\ \hline
+    R42 \label{R.42}& The system must notify via email students when they join a tournament. \\ \hline
 \end{longtable}
 
 \subsection{Mapping on requirements}
@@ -715,8 +683,7 @@ the student if the settings of the tournament allow it.
         \textbf{R39} The system must allow users to visualize ongoing tournaments.    \\
         \textbf{R40} The system must allow users to visualize ongoing tournament ranks.       \\
         \textbf{R41} The system must allow users to visualize students' profiles.     \\
-        \textbf{R42} The system must notify via email students when their work has been manually evaluated. \\
-        \textbf{R43} The system must notify via email students when they join a tournament. \\
+        \textbf{R42} The system must notify via email students when they join a tournament. \\
         \midrule
         \textbf{Domain Assumptions}                                                                                                  \\ \midrule
         \textbf{D1} Users provide correct information during the registration process. \\
@@ -782,7 +749,6 @@ the student if the settings of the tournament allow it.
         \textbf{R33} The system must run the students' projects.      \\
         \textbf{R34} The system must evaluate the students' projects.     \\ 
         \textbf{R38} The system must compute the tournament rank.                 \\ 
-        \textbf{R42} The system must notify via email students when their work has been manually evaluated. \\
         \midrule
         \textbf{Domain Assumptions}                                                                                                  \\ \midrule
         \textbf{D1} Users provide correct information during the registration process. \\           
@@ -830,13 +796,12 @@ the student if the settings of the tournament allow it.
         UC3 - Tournament creation             & R6 R7 R9 R10 R16 R23  \\
         UC4 - Battle creation                 & R17 R18 R19 R21 R25       \\
         UC5 - Tournament visualization        & R39 R40          \\
-        UC6 - Joining a tournament            & R24 R43        \\
+        UC6 - Joining a tournament            & R24 R42        \\
         UC7 - Joining a battle                & R26 R27 R28      \\
-        UC8 - Battle execution                & R22              \\
-        UC9 - Evaluation                      & R15 R20 R31 R32 R33 R34 R42     \\
-        UC10 - Conclusion of a battle         & R29 R35 R36 R37 R38         \\
-        UC11 - Conclusion of a tournament     & R8 R11 R12 R13 R14 R30              \\
-        UC12 - Profile visualization          & R41              \\
+        UC8 - Battle execution                & R22 R31 R32 R33 R34 R35           \\
+        UC9 - Conclusion of a battle          & R15 R20 R29 R31 R35 R36 R37 R38         \\
+        UC10 - Conclusion of a tournament     & R8 R11 R12 R13 R14 R30              \\
+        UC11 - Profile visualization          & R41              \\
         \bottomrule
     \end{tabularx}
 \end{table}
