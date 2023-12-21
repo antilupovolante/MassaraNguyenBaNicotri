@@ -165,7 +165,7 @@ network (LTE/3G/4G/5G).
 { % event flow
     \begin{enumerate}
         \item The actor clicks the 'Register' button.
-        \item The actor fills the sign-up form personal information, email and password.
+        \item The actor fills the sign-up form with his personal information, email and password.
         \item The student adds his GitHub username and submits the information.
         \item The system calls GitHub Service API to check if the username is valid.
         \item The GitHub Service sends the response to the system.
@@ -193,8 +193,8 @@ In case of exception the system will notify user with a human-readable message.
 \usecase
 {3}
 {Tournament creation}
-{Educator, Email Service}
-{The actor is already logged in the system.}
+{Educator, Educator2, Student, Email Service}
+{The educator is already logged in the system.}
 {
     \begin{enumerate}
         \item The educator requires the "Create a new tournament" page.
@@ -204,6 +204,7 @@ In case of exception the system will notify user with a human-readable message.
         \item The educator can invite other educators to join the tournament, giving them the possibility to create battles.
         \item The educator clicks the "Confirm" button and submits the form. 
         \item The system sends an email to the invited educators.
+        \item The system sends an email to the students subscribed to the tournament.
     \end{enumerate}
 }
 {The tournament is created and the tournament page is shown.}
@@ -424,8 +425,8 @@ In case of exception the system will notify user with a human-readable message.
 {
     \begin{enumerate}
         \item The educator closes the tournament.
-        \item The system awards badges to the students.
-        \item The system sends an email to the students.
+        \item The system awards badges to eligible students.
+        \item The system sends an email to the students about the conclusion of the tournament.
     \end{enumerate}
 }
 {The tournament is closed.}
@@ -465,7 +466,7 @@ In case of exception the system will notify user with a human-readable message.
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.95\textwidth]{images/seq_diagrams/Login.jpg}
+    \includegraphics[width=0.95\textwidth]{images/seq_diagrams/login.png}
     \caption{Login sequence diagram}
 \end{figure}
 \clearpage
