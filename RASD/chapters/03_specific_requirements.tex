@@ -138,11 +138,9 @@ network (LTE/3G/4G/5G).
 {1}
 {Login}
 {Student, Educator}
-{The actor is already registered in the system.}
+{The actor browses and opens the webapp.}
 {
     \begin{enumerate}
-        \item The actor requires the Login Page.
-        \item The system shows the Login Page to the actor.
         \item The actor inserts the credentials (email and password) in the form.
         \item The actor submits the form and sends it to the system.
         \item The system processes the information and shows a success message redirecting the user to the homepage.
@@ -224,7 +222,7 @@ In case of exception the system will notify user with a human-readable message.
 \usecase
 {4}
 {Battle creation}
-{Educator, Student, Email Service}
+{Educator, Student, Email Service, GitHub Service}
 {The authorized educator is in the tournament page in which he wants to create the new battle.}
 {
     \begin{enumerate}
@@ -237,6 +235,7 @@ In case of exception the system will notify user with a human-readable message.
         \item The educator sets a deadline to submit the solutions.
         \item The educator can choose to include a manual evaluation of the students' work and specifies the battle rules.
         \item The educator clicks the "Confirm" button and submits the form.
+        \item The system creates the battle repository on GitHub.
         \item The system sends an email to all the students that are subscribed to the tournament.
     \end{enumerate}
 }
@@ -320,7 +319,7 @@ In case of exception the system will notify user with a human-readable message.
 \usecase
 {7.2}
 {Joining a battle - Creating a group}
-{Student, Email Service}
+{Students, Email Service}
 {The authorized student is in the tournament page.}
 {
     \begin{enumerate}
@@ -328,7 +327,7 @@ In case of exception the system will notify user with a human-readable message.
         \item The system shows a form to join the battle.
         \item The student fills the form with other students' email and clicks the "Confirm" button.
         \item The system creates the team but does not sign it up to the battle yet.
-        \item The system sends an email to the students.
+        \item The system sends an email to the invited students.
     \end{enumerate}
 }
 {The tournament page is shown.}
@@ -348,7 +347,7 @@ In case of exception the system will notify user with a human-readable message.
 \usecase
 {7.3}
 {Joining a battle - Joining a group}
-{Student, EmailProvider}
+{Students, EmailProvider, Email Service}
 {The authorized student is logged in the system.}
 {
     \begin{enumerate}
@@ -380,7 +379,7 @@ In case of exception the system will notify user with a human-readable message.
         \item The student forks the code kata repository.
         \item The student sets up the automated workflow on GitHub Actions.
         \item The student pushes his code to the repository.
-        \item The system performs the automated evaluated.
+        \item The system performs the automated evaluation.
     \end{enumerate}
 }
 {The system updates the battle score.}
@@ -394,7 +393,7 @@ In case of exception the system will notify user with a human-readable message.
 \usecase
 {9}
 {Conclusion of a battle}
-{Student, Email Service}
+{Educator, Student, Email Service}
 {The submission deadline (and, if required, the manual evaluation stage) has expired.}
 {
     If the manual evaluation is required:
@@ -405,7 +404,7 @@ In case of exception the system will notify user with a human-readable message.
         \item The system updates the battle score.
     \end{enumerate}
     Finally:
-    \begin{enumerate}
+    \begin{enumerate}[resume]
         \item The system updates the tournament score and rank.
         \item The system sends an email to the students subscribed to the battle.
     \end{enumerate}
@@ -426,7 +425,7 @@ In case of exception the system will notify user with a human-readable message.
     \begin{enumerate}
         \item The educator closes the tournament.
         \item The system awards badges to eligible students.
-        \item The system sends an email to the students about the conclusion of the tournament.
+        \item The system sends an email to the subscribed students about the conclusion of the tournament.
     \end{enumerate}
 }
 {The tournament is closed.}
@@ -459,15 +458,15 @@ In case of exception the system will notify user with a human-readable message.
 \subsection{Sequence Diagrams}
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.95\textwidth]{images/seq_diagrams/Registration.png}
-    \caption{Registration sequence diagram}
+    \includegraphics[width=0.95\textwidth]{images/seq_diagrams/login.png}
+    \caption{Login sequence diagram}
 \end{figure}
 \clearpage
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.95\textwidth]{images/seq_diagrams/login.png}
-    \caption{Login sequence diagram}
+    \includegraphics[width=0.95\textwidth]{images/seq_diagrams/Registration.png}
+    \caption{Registration sequence diagram}
 \end{figure}
 \clearpage
 
