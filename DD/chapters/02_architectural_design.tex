@@ -54,6 +54,7 @@ The figure above shows the internal components of the CKB server.
     \item \textbf{MailManager: } it handles the access to the mail server, it provides the \textbf{MailInterface} that allows components to send emails.
     \item \textbf{DataManager: } it handles the access to the persistent data saved on the DB, almost every component communicates with it through the \textbf{DataInterface}.
     \item \textbf{EvaluationTool: } it handles the evaluation of the students' code based on the battle rules. It retrieves this information from the \textbf{CKBHandler}.
+    The specific analysis tools are chosen during the implementation phase based on the programming languages that the system will support (e.g., Pylint for Python, CLang for C/C++, ...).
 \end{itemize}
 
 

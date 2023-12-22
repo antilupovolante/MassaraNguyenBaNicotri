@@ -15,7 +15,8 @@ Particularly, the implementation order is the following:
     \item \textbf{AuthManager:} this component is responsible for users authentication and authorization, 
     which are key aspects of the system, and therefore is heavily linked to the DBMS and DataManager.
     \item \textbf{MailManager, EvaluationTool:} these components can be implemented in parallel since they are 
-    independent from each other.
+    independent from each other. In this phase we need to choose the programming languages that the system will
+    support and consequently the static analysis tools that will be integrated into the system.    
     \item \textbf{CKBHandler:} this component is responsible for linking together the previous components, so 
     it must be developed after them.
     \item \textbf{UserApp:} this component is responsible for the interaction with the user, so it is to be 
