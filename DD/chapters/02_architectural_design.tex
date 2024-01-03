@@ -74,7 +74,7 @@ The figure above shows the internal components of the AuthHandler.
 \end{itemize}
 LoginHandlers communicate with the \textbf{AuthCheckInterface} to check the authorization of a user.\\
 RegistrationHandlers communicate with the \textbf{MailInterface} to send confirmation emails and with the \textbf{DataInterface} to store the data of the new user.\\
-SRegistrationHandler also communicate with \textbf{GitHubAPI} to link the CKB account with the GitHub one.
+SRegistrationHandler also communicates with \textbf{GitHubAPI} to link the CKB account with the GitHub one.
 
 \subsection{CKB component view}
 \begin{figure}[H]
@@ -93,7 +93,7 @@ The figure above shows the internal components of the CKBHandler.
     \item \textbf{ProfileHandler: } it is responsible for the visualization of the profile of a student. 
 \end{itemize}
 All components communicate with the \textbf{AuthCheckInterface} to check the authorization of a user to perform the requested operation.\\
-TournamentHandlers and BattleHandlers communicate with the \textbf{DataInterface} to retrieve and store data and with the \textbf{MailInterface} to send notifications to the users.\\
+TournamentHandlers and BattleHandlers communicate with the \textbf{DataInterface} to retrieve and store data, and with the \textbf{MailInterface} to send notifications to the users.\\
 EdBattleHandler also communicates with the \textbf{GitHubAPI} to retrieve the students' pushed code.\\
 EvaluationHandler communicates with the \textbf{EvaluationInterface} to evaluate the students' code and with the \textbf{DataInterface} to store the results of the evaluation.\\
 ProfileHandler communicates with the \textbf{DataInterface} to retrieve the data of the searched student.
@@ -127,15 +127,14 @@ The deployment diagram offers a more detailed view over the hardware and softwar
         \item  \textbf{Multiple copies of Web Server and Application Server:} they are used to ensure that the system is always available. The different instances can be created and destroyed dynamically, based on the workload. It also helps to achieve fault tolerance by allowing traffic to be redirect to a different instance, if one instance becomes unavailable.
     \end{itemize}
     \item   \textbf{Database:} used to store all the data of the system. It uses MySQL as DBMS to retrieve and store data.
-    \item   \textbf{Mail Provider: } used to send notifications to the users. It uses Gmail as mail provider.
 \end{itemize}
 
 \section{Runtime view}
 \subsection{Registration Student}
-The figure below shows the sequence diagram of the registration of a student. The student fills the form with their email and password and submits it. 
+The figure below shows the sequence diagram of the registration of a student. 
+The student fills the form his their email and password, and his personal information (name, surname, date of birth) and also his GitHub nickname.
 The database checks if the email is already used, if not the system sends a confirmation email to the student to complete the registration. 
-The student inserts their personal information (name, surname, date of birth) and also their GitHub nickname. 
-The system checks if the GitHub nickname is valid, if so the system saves the student's credentials and the registration is completed.\\
+Also, the system checks if the GitHub nickname of the student is valid, if so the system saves the student's credentials and the registration is completed.\\
 
 \begin{figure}[H]
     \centering
@@ -145,9 +144,11 @@ The system checks if the GitHub nickname is valid, if so the system saves the st
 \clearpage
 
 \subsection{Registration Educator}
-The figure below shows the sequence diagram of the registration of an educator. The educator fills the form with their email and password and submits it. 
+The figure below shows the sequence diagram of the registration of an educator. 
+The educator fills the form with his email and password, and his personal information (name, surname, date of birth) and submits it.
 The database checks if the email is already used, if not the system sends a confirmation email to the educator to complete the registration. 
-The educator inserts their personal information (name, surname, date of birth) and the system saves the educator's credentials and the registration is completed.\\
+The system saves the educator's credentials and the registration is completed.\\
+
 \begin{figure}[H]
     \centering
     \includegraphics[width=1\textwidth]{images/seq_diagrams/RegistrationEd_DD.png}
@@ -179,9 +180,9 @@ The figure below shows the sequence diagram of the creation of a tournament. The
 \clearpage
 
 \subsection{Creation of the battle}
-The figure below shows the sequence diagram of the creation of a battle. After the educator clicked ok the "Create Battle" button, they compile the form
- with the battle details and submits it. The system checks if the data is valid. The battle is created, so the system sends an email to all 
- the students subscribed to the tournament.\\  
+The figure below shows the sequence diagram of the creation of a battle. After the educator clicked on the "Create Battle" button, he fills the form
+ with the battle details and submits it. The system checks if the data is valid. When the battle is created, the system sends an email to all 
+ the students subscribed to the correspond tournament.\\  
  
 \begin{figure}[H]
     \centering
@@ -192,7 +193,7 @@ The figure below shows the sequence diagram of the creation of a battle. After t
 
 \subsection{Tournament visualization}
 The figure below shows the sequence diagram of the visualization of a tournament. First the user requests the list of ongoing tournaments, 
-then the user selects the tournament he wants to visualize.\\
+then the user selects the tournament he wants to visualize the information.\\
 \begin{figure}[H]
     \centering
     \includegraphics[width=1\textwidth]{images/seq_diagrams/tournament_visualization_dd.png}
@@ -263,7 +264,7 @@ rank is available.\\
 
 \subsection{Conclusion of a tournament}
 The figure below shows the sequence diagram of the conclusion of a tournament. The educator chooses to conclude the tournament, so the system 
-awards badges to students and sends an email notification to all subscribed students.\\
+awards badges to eligible students and sends an email notification to all subscribed students.\\
 \begin{figure}[H]
     \centering
     \includegraphics[width=1\textwidth]{images/seq_diagrams/tournament_conclusion_DD.png}
@@ -300,7 +301,7 @@ In this section, the figure below depicts the interface diagram with the compone
     Finally, it improves the maintainability of the system by allowing to modify a single layer without affecting the other ones.
     \item \textbf{REST architectural style: }the system is based on the REST architectural style. REST is a software architectural style that 
     defines a standard language for Web services. It is stateless and it makes easy to integrate with other systems thanks to the uniform 
-    interface. It also allows for a clear separation between the client and the server. Client are not concerned with the internal state of the 
+    interface. It also allows for a clear separation between the client and the server. Clients are not concerned with the internal state of the 
     server, promoting loose coupling and enhancing system maintainability.
 \end{itemize}
 
